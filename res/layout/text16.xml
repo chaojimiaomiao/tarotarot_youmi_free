@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：高塔　The Tower" 
+  />
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/text2_1"
+    android:textColor="@drawable/black"
+    android:text="
+ 别　　名：上帝之家　The House Of God\n 关 键 字：骤变、灾难、破坏、意外\n 星　　相：火星\n 四 要 素：火\n 牌面描述：\n 　　原本巍然屹立德雄伟高塔，却被一道突来的闪电击中而崩溃燃烧起来，而这雷鸣电闪正是神的愤怒与制裁。塔顶上的金冠也被惊雷击落，预示着权力、财富和成就都在这骤变中荡然无存。高塔代表着毁灭，即突如其来的灾难。塔中坠落的两名男子似是前面的皇帝和圣职者，他们搭头向下的姿势和惊恐的表情，预示着面对突入起来的灾难，无论阶级、财富，谁也都很难幸免于难。如果说这个世界有运气这种东西的话，那么厄运降临的几率对任何人都是平等的，同样好运意识如此。" 
+  />
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout>

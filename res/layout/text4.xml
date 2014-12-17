@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：皇帝　The Emperor" 
+  />
+      <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="500px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：权力、威严、支配 \n
+星　　相：牧羊座 \n
+四 要 素：火 \n
+牌面描述： \n
+　　一国之尊的皇帝头戴皇冠，身着红袍，足蹬象征严格纪律的战靴，自信满满的端坐在宝座上。他左手拿着一个水晶球，象征秩序严谨有条，右手则握着一个法杖，象征生命与权力。在王座上有四个牧羊头浮雕，强调了皇帝牌所对应的星相——牧羊座（火星），作为十二星座之首，这里的牧羊头像也象征着勇敢、积极、野心和自信，并与全牌呈现的红色的主色调不谋而合。背景严峻的山峦预示着权力背后的风险，这与女皇牌中的富饶相比，难免让观者多了几分担忧。" 
+  />
+  </ScrollView>
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout>

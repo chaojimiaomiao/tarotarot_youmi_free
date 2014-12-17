@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　名：愚人" 
+  />
+  <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="540px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:scrollbars="vertical"
+    android:textColor="@drawable/black"
+    android:text="
+关键字: 开始,自由,天真,流浪,大胆,旅行 \n
+ 星相：天王星    \n
+ 四 要 素：风 \n
+ 牌面描述:\n
+ 　　愚人穿着色彩斑斓的服装，无视前方的悬崖，昂首阔步前行。
+ 他狡辩的小白狗正狂吠着，似乎是在提醒他要悬崖勒马，又好像是在跟他一起无忧无虑的嬉戏。
+ 总之，愚人仍旧保持着欢悦的神色，网箱遥远的天空，对于脚下的悬崖视而不见，就好像悬崖崖边有一座透明的浮桥一样。
+ 一切皆源于本能，无知无惧，或许就是愚人的写照吧！在愚人的左手握着一朵白玫瑰，象征愚人内心的纯洁和火一般的热情。
+ 而愚人右手系着包袱的木棒正式魔术师（大阿尔卡那1号牌）手中的魔杖，相传拥有操控世界的魔力，但此时却成了愚人手中的一个玩物。
+ 或许是因为愚人并不知道他的威力，又或许是大智若愚无视力量的存在，除了愚人自己，恐怕不会有第二个人知道。
+ 愚人包袱里面装满了他的经验，所以愚人并不愚蠢，只是不为经验所控，求一糊涂罢了，这可能就是我们常说的难得糊涂。
+ 放眼远望，使连绵起伏的山脉，那便是愚人位置的旅途，有太多的故事等着愚人去经历，有太多的知识等着愚人去感悟，就像伟特说的那样“愚人是一个追寻经验的灵魂”。" 
+  />
+  </ScrollView>
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout>

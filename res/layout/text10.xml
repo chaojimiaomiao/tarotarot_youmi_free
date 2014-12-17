@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="20sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：命运之轮　Wheel Of Fortune" 
+  />
+  <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="500px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：契机、转变、进展、运气\n 星　　相：木星\n 四 要 素：土\n 牌面描述：\n 　　蔚蓝的天空中悬挂着命运之轮，与圣职者的三层投管相通，命运之轮也是有三层组成。最里面的圆中没有任何符号，代表空无，象征万物的创造；中间的圆上有四个炼金符号，对应西方物质构成的四要素，象征了万物的形成；最外面的圆中上刻着“TAROT”字样，象征已经创造的世界。轮盘的左侧是埃及神话中的邪恶之神，蛇头朝下预示着人生中的沉沦；而背负着命运之轮的阿努比斯，则预示了背负命运的渴望；至于命运之轮顶部的是狮身人面像，据说是智慧的象征，其手中的宝剑则代表思考，或许实在说面对人生，思索真谛是获取顺境的方法。牌图的四角分别是狮子、飞鹰、天使和神牛恰恰应征了命运之轮中间那个圆上的符号，即四要素的火、水、风、土。" 
+  />
+  </ScrollView>
+   <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout>

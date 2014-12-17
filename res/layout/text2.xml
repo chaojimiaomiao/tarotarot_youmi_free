@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：女祭司　The High Priestess" 
+  />
+  <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="500px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+  别　　名：女教皇　The Papess\n 关 键 字：等待、智慧、理性、消极、静止\n 星　　相：月亮\n 四 要 素：水\n 牌灵介绍：\n 　　如果你抽出了女祭司牌，表示你的牌十分地纤细敏锐，它能够洞察你内心最细微的变化，因而它很容易和你建立良好的默契。\n 　　若你是一位女性，你可以将其当成你的护身符；你无需把整副牌带在身边，只要带着女祭司这张牌就可以了，它可以保护你远离伤害，安抚你的情绪，还能够维护你的生理平衡，让你在工作和学习上较为顺利。\n 　　你可以用它使用任何的问题，但如果使用有关女性的问题，它会更加地准确。此外，它能够洞悉被使用者的心思和现在的情况，因此在切牌之后，最下面的那张牌，是代表被使用者在这件事情上的心境，千万别忽略了。 \n"
+  />
+  </ScrollView>
+    <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：节制　Temperance" 
+  />
+  <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="520px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：协调、配合、节制、净化、治疗\n 星　　相：射手座\n 四 要 素：火\n 牌面描述：\n 　　一名天使正在将代表灵魂与生命的水从一个圣杯倒向另一个圣杯。有人说，右手圣杯中的水代表意识，而左手中的代表无意识，也有人说它们分别代表物质与精神。但是无论如何，至少我们在牌图中看到了一种交互，无论水从哪里来，到哪里去，水都在流，而流动不正是一种调和与净化吗？天使一只脚站在水中，一只脚站在岸上。按照西方文化水代表内心的精神世界，土地则代表着外界的物质世界，那么天使如此站立恰恰预示了我们在物质与精神两个世界徘徊的人生，而以水中之足为实，岸地为虚，则恰扣主题，暗示人们节制欲望、净化心灵。" 
+  />
+  </ScrollView>
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout>

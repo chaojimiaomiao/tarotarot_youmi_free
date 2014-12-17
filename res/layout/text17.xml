@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：星星　The Stars" 
+  />
+  <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="500px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：希望、祝福\n 星　　相：水瓶座\n 四 要 素：水\n 牌面描述：\n 　　夜空中一大七小八颗星星，其中那颗大的据说是天狼星，可以为那些寻求帮助的人带去希望和信心。在闪烁的星空下，是一个全裸的女人。她左腿单膝着地跪在池边，右脚则踏入水中，正在将两壶生命之水倾倒在池中和岸上。女人到处的水正是节制中圣杯中的水，只不过这次是将它浇灌于大地和池中，而非在两个杯子中传递。在池边不远的枝头，落着一只不死鸟，预示着生命的不朽。大地代表意识，水代表无意识，不死鸟则是精神的升华，而裸女则寓意真实的自我。可以说，星星是一张给人们带去希望的牌，预示着寓言的兑现和灵感与精神的互动，暗示人们不应放弃希望，只有自信、自尊、自强才能有所成就。" 
+  />
+  </ScrollView>
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout>

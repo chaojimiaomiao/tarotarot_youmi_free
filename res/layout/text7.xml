@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：战车　The Chariot" 
+  />
+     <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="500px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：意志、自律、胜利、旅程、胜利、空虚\n 星　　相：巨蟹座\n 四 要 素：水\n 牌面描述：\n 　　一位头戴八芒星战盔、身着盔甲的勇士驾着一辆由两只狮身人面兽拉着的战车，向着胜利勇往直前，气势无人可挡。车前左侧的黑色狮身人面兽代表严厉，而右侧的白色狮身人面兽则代表慈悲，双手并行，恰恰预示了阴阳调和，即追求胜利的前提——平衡。蓝色的车篷和上面的六芒星图案，象征了天体对战士成功的影响，也预言了希望对于获得胜利的重要性。勇士右手紧握长矛，表明了他内心对胜利的渴求，胸前的正方形则代表土元素，象征意志的力量。战车前方的一对翅膀相传是古埃及图腾，代表灵感，而翅膀下面的小盾牌中则相传为古印度预示阴阳结合的图腾。作为塔罗牌中的第7号牌，站车似乎预示了走过了三分之一旅程的愚人已经变成了一名成熟、勇敢的战士，在追求胜利中披荆斩棘、奋勇向前。" 
+  />
+  </ScrollView>
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:umadsdk="http://schemas.android.com/apk/res/irdc.gallary"
+  android:orientation="horizontal"
+  android:background="@drawable/main"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  
+  <ImageView
+    android:id="@+id/image1"
+    android:src="@drawable/crystal"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_centerInParent="true"
+    ></ImageView>
+  <ImageView
+    android:id="@+id/button1"
+    android:background="@drawable/gallary"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="30dip"
+    ></ImageView>
+    <ImageView
+    android:id="@+id/button2"
+    android:background="@drawable/cards"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="180dip"
+    ></ImageView>
+</RelativeLayout>
+

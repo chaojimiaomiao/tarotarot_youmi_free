@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：隐士　The Hermit" 
+  />
+  <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="500px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+牌　　名：隐士　The Hermit 关 键 字：谨慎、内敛、自省、孤独、引导\n 星　　相：处女座\n 四 要 素：土\n 牌面描述：\n 　　一位老者身披灰色斗篷站在冰天雪地的山颠，手提一盏油灯，好像是在低头沉思。那看似微弱的灯光，在渺无人烟的暗淡雪夜中，显得有些无助，但对老者而言，那是真理、也是希望。手中的拐杖正是愚人手中戏耍的木棒、魔术师手中沟通天地的法器和战车手中追求胜利的长矛，而此时，经过无知、热忱、繁华之后，变得确实如此的普通，正应了中国那句“返璞归真”的老话。老者人手这独处的孤寂，反省着自己的过去，跟随真理之灯的指引，暗示了寻求真理道路上的艰辛、朴素，预示了只有以开阔的胸怀认知世事，以不断反省的态度探知真我，方能求得正果。" 
+  />
+  </ScrollView>
+   <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout>
