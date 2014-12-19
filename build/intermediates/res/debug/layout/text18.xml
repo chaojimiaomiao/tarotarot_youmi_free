@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：月亮　The Moon" 
+  />
+  <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="500px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：不安、多变、忧郁、刻薄\n 星　　相：双鱼座\n 四 要 素：水\n 牌面描述：\n 　　月亮高挂在夜空之中，圆缺不定。月中隐约有一张愁苦的面容，带给人忧郁不安的感觉。月下有两只狗（也有人说是一只狼、一只狗）正在仰望月空低吠，似乎是体会到月亮的愁苦而报以同情，诱惑是向像月亮问着什么。池中的蝎子似乎很向往月宫的样子，努力爬出水面，正准备沿着黄色弯曲的小路前往自己向往已久的地方。整个牌图除了月亮和蝎子外，基本成对称结构，有一条蜿蜒的小路分开，据说代表人生理想与现实两个层面，而蝎子为了实现自己的梦想，必须在理想与现实中徘徊前行，稍有偏差便很难达成目的。而月亮中那张愁苦不安的面孔，似乎是对前行中蝎子的内心映照吧！" 
+  />
+  </ScrollView>
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout><!-- From: file:/Users/zhaibingjie/Downloads/tarotarot_youmi_free/res/layout/text18.xml -->

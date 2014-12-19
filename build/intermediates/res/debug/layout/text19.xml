@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：太阳　The Sun" 
+  />
+  <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="520px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：成功、自由、喜悦、阳光\n 星　　相：太阳\n 四 要 素：火\n 牌面描述：\n 　　一名满脸稚气、面带笑容的孩子骑在马背上，从灰色的围墙中一跃而出，预示着逃脱束缚、奔向自由。孩子的头上有一个雏菊花环和一根似曾相识的羽毛，与愚人和死神头上的那根一模一样，据说象征超越死亡和重获新生。在灰色的围墙后面种满了金灿灿的向日葵，似乎是一座人造花园。但孩子似乎对这些人造的美景并无兴趣，而是选择了奔向那天然毫无修饰的世界，就像是他裸露的身体一样，真实、自然、纯真。四朵向日葵都面向孩子而非太阳，似乎是在告诉我们纯净、自然、真实的个体凌驾于太阳之上，是一种远远超越权力和财富的境界，同时也是快乐的源泉，就像孩子脸上洋溢出的喜悦。" 
+  />
+  </ScrollView>
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout><!-- From: file:/Users/zhaibingjie/Downloads/tarotarot_youmi_free/res/layout/text19.xml -->

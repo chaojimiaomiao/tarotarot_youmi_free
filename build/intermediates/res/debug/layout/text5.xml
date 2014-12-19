@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：圣职者　The Hierophant" 
+  />
+ <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="500px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+别　　名：主教 The Pope\n
+关 键 字：宗教、传统、援助、仪式\n 
+星　　相：金牛座 \n
+四 要 素：土 \n
+牌面描述： \n
+　　教皇身着红袍，端坐在信众面前，头上戴着象征权力的三层皇冠，分别代表物质、精神、道德三种层次的世界认知，耳边的白色挂饰，则代表他聆听的信众心声的使命。他的右手食指和中指指向苍穹，象征宗教中的赐福，而左手的令牌则预示了神圣且至高无上的权力。在教皇的脚下有一对交叉摆放的钥匙，一金一银，分属阴阳，据说那是日月之匙，可任意开启智慧与神秘之门。教皇面前的两名信众，左边的身着红色的玫瑰袍，代表热情与爱心，右边的则穿着一身白百合外衣，代表内心的圣洁和灵性的成长。教皇与女祭司都是代表植被有关宗教精神与内心世界的塔罗牌，然而与女祭司不同的是，女祭司恪守就有的律法和知识，将宗教精神中的智慧融入自身的修为，可谓深藏不露、独善其身，而教皇则代表耶稣传教的精神，将智慧视为真理并广为传播。他关怀世间一切疾苦，身体力行，以引导一切事物的智慧帮助愚昧的世人。 "
+></TextView>
+</ScrollView>
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout><!-- From: file:/Users/zhaibingjie/Downloads/tarotarot_youmi_free/res/layout/text5.xml -->

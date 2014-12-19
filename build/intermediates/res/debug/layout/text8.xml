@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：力量　Strength" 
+  />
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/text2_1"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：力量、勇气、信心、耐心\n 星　　相：狮子座\n 四 要 素：火\n 牌面描述：\n 　　与魔术师一样，力量女神的头顶也有一个无限大符号，预示其无穷无尽的力量。但与魔术师不同，女神的力量似乎没有魔术师得凌厉，而是透着一丝怜悯和包容。她带着怜悯的目光，用看似柔弱的双手轻轻合上雄狮的嘴，轻而易举的压制了百兽之王狮子的兽性。女神眼中的怜悯，似乎是在同情狮子的兽性，而象征征服的百兽之王在女神冷静慈悲的目光下也变得温顺可亲。或许，一颗宽容的心才是力量真正的来源吧！" 
+  />
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout><!-- From: file:/Users/zhaibingjie/Downloads/tarotarot_youmi_free/res/layout/text8.xml -->

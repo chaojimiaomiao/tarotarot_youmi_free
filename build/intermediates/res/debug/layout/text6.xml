@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：恋人　The Lovers" 
+  />
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/text2_1"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：选择、爱情、性、结合、罗曼蒂克\n 星　　相：双子座\n 四 要 素：风\n 牌面描述：\n 　　恋人牌以伊甸园为背景，依亚当夏娃的爱情故事为背景，阐述了爱的真谛。牌图中亚当夏娃分列两边，在天使的祝福声中感受着爱的浪漫与温馨。天使身着紫袍，据说代表爱的忠贞，而为张的双臂则预示了沟通在恋爱中的重要地位。右侧的亚当目不转睛的注视着夏娃，而夏娃却仰望天使，再加上天使俯视亚当与夏娃，这种视觉上的循环，象征了潜意识、意识、超意识与物质、精神、道德之间的层次变化，也暗示了理性与感性之间的传导。" 
+  />
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout><!-- From: file:/Users/zhaibingjie/Downloads/tarotarot_youmi_free/res/layout/text6.xml -->

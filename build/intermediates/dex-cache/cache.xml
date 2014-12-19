@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/zhaibingjie/Downloads/tarotarot_youmi_free/libs/YoumiSdk_v4.10_2014-11-24.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="d1d9ab60b9c5d136ff6e0dfad05679776f4ba95d">
+        <dex dex="/Users/zhaibingjie/Downloads/tarotarot_youmi_free/build/intermediates/pre-dexed/debug/YoumiSdk_v4.10_2014-11-24-09a24e003fc7938ed247bfdc0861378dcc682ea9.jar" />
+    </item>
+
+</items>

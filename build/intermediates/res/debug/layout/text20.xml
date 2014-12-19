@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：审判　Judgement" 
+  />
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/text2_1"
+    android:textColor="@drawable/black"
+    android:text="
+ 别　　名：天使　Angle\n 关 键 字：复活、觉醒、回忆\n 星　　相：冥王星\n 四 要 素：水\n 牌面描述：\n 　　天使吹响了号角，传播着上天的福音。在声声催人振奋的号角中，沉睡已久的灵魂一个个走出了自己内心的坟墓，或者说是内心的困惑，站立在天使的翅膀下，满怀感恩的心，细心聆听着上天的福音。审判是大阿尔卡那的倒数第二张牌，可以说是对大阿尔卡那前二十张人生旅程的一个回顾和自省，在超越自我认知最终的世界之前，反省自己的过去，进行自我剖析，认清并且洗涤自己曾经的错，坚信曾经的对，才能最终走向成功之门。" 
+  />
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout><!-- From: file:/Users/zhaibingjie/Downloads/tarotarot_youmi_free/res/layout/text20.xml -->

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：死神　Death" 
+  />
+  <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="520px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：结束、转变、新生\n 星　　相：天蝎座\n 四 要 素：水\n 牌面描述：\n 　　死神坐骑白马，高高在上，俯视地上的生灵，在他的手中高举一面绘有蔷薇十字会图腾的黑色旗帜。有人说这个图腾代表死后获得新生的过程，也有人说这个图腾与火星相应代表不朽生命力。在死神的马下，分别是国王、圣职者、妇女和儿童，代表终生对死亡的四种看法。国王抗拒死亡，最终被践踏于死神的马蹄之下；圣职者将令牌置于地上，崇敬死亡，并上手合十祈祷主的引领以求步入天堂；妇女跪在地上，因对死亡的恐惧而昏厥过去；只有那个天真可爱的孩子因为无知而满脸稚气好奇地看着死神。四个人，四种心态，无论是抗拒、崇敬、恐慌还是无知，都在阐述这相同的道理——无论是富贵还是贫穷、无论是男女老少，死亡都是一种不可抗拒的自然现象，无法逃避，也无需逃避。" 
+  />
+  </ScrollView>
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout><!-- From: file:/Users/zhaibingjie/Downloads/tarotarot_youmi_free/res/layout/text13.xml -->

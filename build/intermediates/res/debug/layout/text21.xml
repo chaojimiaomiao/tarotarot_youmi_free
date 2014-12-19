@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：世界　The World" 
+  />
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/text2_1"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：复活、觉醒、回忆\n 星　　相：土星\n 四 要 素：土\n 牌面描述：\n 　　世界代表宇宙的重点，与大阿尔卡那得第10张命运之轮相呼应，四方依然是狮子、飞鹰、天使和神牛，只是中间不再是命运之轮，而是一个在月桂花环中跳舞的少女。她一手拿着一个魔杖，又好像是一把钥匙，正在为步入重点地人喝彩，又或是一种召唤，在引导胜利者走到智慧之门面前，接过他手中开启幸福的钥匙。世界是大阿尔卡那人生旅途的重点，也是一个新的开始，因为进入智慧之门，你又会变回愚人，为找寻新的智慧或是人生目标而奋斗。" 
+  />
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout><!-- From: file:/Users/zhaibingjie/Downloads/tarotarot_youmi_free/res/layout/text21.xml -->

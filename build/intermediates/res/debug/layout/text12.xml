@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/info_bg"
+  android:orientation="vertical"
+  android:gravity="center_vertical|center_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+>
+  <TextView
+    android:id="@+id/text2_1"
+    android:textSize="22sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:layout_centerHorizontal="true"
+    android:textColor="@drawable/pink"
+    android:textStyle="bold"
+    android:text="牌　　名：倒吊者　The Hanged Man" 
+  />
+  <ScrollView android:id="@+id/mySV"
+            android:layout_width="wrap_content"
+            android:layout_height="500px"
+            android:fadingEdge="vertical"
+            android:layout_below="@id/text2_1">
+  <TextView
+    android:id="@+id/text2_2"
+    android:textSize="18sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@drawable/black"
+    android:text="
+ 关 键 字：牺牲、等待、换位思考、以退为进\n 星　　相：海王星\n 四 要 素：水\n 牌面描述：\n 　　一名男子双手反绑，被人倒吊在T字型的树干上。男子反绑的双手呈三角，双腿交织成十字，拼在一起恰恰形成了西方炼金术中的一个炼金符号，预示着伟大事业的完成，同时也暗含了由低层欲望向道德升华的过程。由上至下色彩的变幻（红色的外裤、蓝色的上衣和金色的光环）与圣职者的三层头冠以及命运之轮中的三个同心圆相呼应，依次对应身、心、灵三层境界，只是顺序导致的视角，强调了换位思考的意义。而脚上金色的鞋子不仅表明了倒吊者崇高的牺牲精神，也预示了灵（即道德）的地位，即便是换位思考，道德永远是第一位的。" 
+  />
+  </ScrollView>
+  <ImageView
+  android:id="@+id/button2"
+  android:src="@drawable/info_next"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="400dip"
+  android:layout_centerHorizontal="true"
+  />
+</RelativeLayout><!-- From: file:/Users/zhaibingjie/Downloads/tarotarot_youmi_free/res/layout/text12.xml -->
