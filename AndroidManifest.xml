@@ -16,7 +16,7 @@
         <activity android:name="Choose2" android:screenOrientation="nosensor"></activity>
         <activity android:name="shuffle" android:screenOrientation="nosensor"></activity>
         <activity android:name="editText" android:screenOrientation="nosensor"></activity>
-        <activity android:name="cardarray1" android:screenOrientation="nosensor"></activity>
+        <activity android:name=".CardArray1" android:screenOrientation="nosensor"></activity>
         <activity android:name="cardarray2" android:screenOrientation="nosensor"></activity>
         <activity android:name="cardarray3" android:screenOrientation="nosensor"></activity>
     </application>

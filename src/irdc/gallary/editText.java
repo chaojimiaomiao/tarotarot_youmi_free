@@ -1,7 +1,5 @@
 package irdc.gallary;
 
-import irdc.gallary.R.string;
-import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +19,7 @@ public class editText extends Activity
 //  public static int num_editText=0;
   public boolean onTouchEvent(MotionEvent event) 
   {   
-    /* eventµÄAction?¶Ï */
+    /* eventï¿½ï¿½Action?ï¿½ï¿½ */
     if(event.getPointerCount()>1)
     {
       Intent intent=new Intent();
@@ -36,7 +34,7 @@ public class editText extends Activity
   @Override
   public boolean onKeyDown(int keyCode, KeyEvent event) {
     
-    //°´ÏÂ¼üÅÌÉÏ·µ»Ø°´Å¥
+    //ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½Ø°ï¿½Å¥
     if(keyCode == KeyEvent.KEYCODE_BACK){
       Intent intent=new Intent();
       intent.setClass(editText.this, Choose2.class);
@@ -53,13 +51,13 @@ public class editText extends Activity
   public void onCreate(Bundle savedInstanceState)
   {
 //    shuffle.num_shuffle=1;
-  //Òþ²Ø×´Ì¬À¸£¬Ê¹imageviewÈ«ÆÁÏÔÊ¾
+  //ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½Ê¹imageviewÈ«ï¿½ï¿½ï¿½ï¿½Ê¾
     this.getWindow().setFlags
     (
         WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN
     );
-    //Òþ²Ø±êÌâÀ¸
+    //ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½
     requestWindowFeature(Window.FEATURE_NO_TITLE);
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main2_01_1);
@@ -71,16 +69,16 @@ public class editText extends Activity
       {
         EditText etEditText=(EditText)findViewById(R.id.question);
         final String question=etEditText.getText().toString();
-        new AlertDialog.Builder(editText.this).setTitle("ÖØÒª").setMessage("Are you sure?").setIcon(R.drawable.hot)
+        new AlertDialog.Builder(editText.this).setTitle("ï¿½ï¿½Òª").setMessage("Are you sure?").setIcon(R.drawable.hot)
         .setPositiveButton
         (
-          "È·¶¨",
+          "È·ï¿½ï¿½",
           new DialogInterface.OnClickListener()
           {
             public void onClick(DialogInterface dialoginterface,int i)
             {
               Intent intent=new Intent();
-              intent.setClass(editText.this, cardarray1.class);
+              intent.setClass(editText.this, CardArray1.class);
               
               Bundle bundle=new Bundle();
               bundle.putString("question",question);
@@ -90,7 +88,7 @@ public class editText extends Activity
               editText.this.finish();
             }
           }
-        ).setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener()
+        ).setNegativeButton("È¡ï¿½ï¿½", new DialogInterface.OnClickListener()
         {
           
           @Override

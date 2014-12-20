@@ -1,16 +1,10 @@
 package irdc.gallary; 
 import java.util.Random;
 
-import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -18,13 +12,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
-import android.view.View.OnFocusChangeListener;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-public class cardarray1 extends Activity
-{ 
-  /*Ğû¸æÒ»¸ö¶ÔÏó±äÁ¿(Í¼Æ¬°´Å¥,°´Å¥,ÓëTextView)*/ 
+
+public class CardArray1 extends Activity {
+    private final String resultString = "";
   private ImageView mImageButton1;
   
 //  private TextView 
@@ -35,29 +27,27 @@ public class cardarray1 extends Activity
   
   
   public boolean onTouchEvent(MotionEvent event) 
-  {   
-    /* eventµÄAction?¶Ï */
+  {
     if(event.getPointerCount()>1)
     {
       Intent intent=new Intent();
-      intent.setClass(cardarray1.this, Choose2.class);
+      intent.setClass(CardArray1.this, Choose2.class);
       startActivity(intent);
       System.exit(0);
-      cardarray1.this.finish();
+      CardArray1.this.finish();
     }
 
     return super.onTouchEvent(event);
   }
   @Override
   public boolean onKeyDown(int keyCode, KeyEvent event) {
-    
-    //°´ÏÂ¼üÅÌÉÏ·µ»Ø°´Å¥
+
     if(keyCode == KeyEvent.KEYCODE_BACK){
  //     choose.myMediaPlayer.stop();
       Intent intent=new Intent();
-      intent.setClass(cardarray1.this, Choose2.class);
+      intent.setClass(CardArray1.this, Choose2.class);
       startActivity(intent);
-      cardarray1.this.finish();
+      CardArray1.this.finish();
       return true;
     }else{    
       return super.onKeyDown(keyCode, event);
@@ -69,215 +59,208 @@ public class cardarray1 extends Activity
   public void onCreate(Bundle savedInstanceState)
   { 
     super.onCreate(savedInstanceState);
-//    editText.num_editText=1;
-  //Òş²Ø×´Ì¬À¸£¬Ê¹imageviewÈ«ÆÁÏÔÊ¾
     this.getWindow().setFlags
     (
         WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN
     );
-    //Òş²Ø±êÌâÀ¸
     requestWindowFeature(Window.FEATURE_NO_TITLE);
     setContentView(R.layout.main2_01); 
     
-    Bundle bundle=this.getIntent().getExtras();//....................»ñÈ¡Êı¾İ
+    Bundle bundle=this.getIntent().getExtras();
     
     String question=bundle.getString("question");
-    /*Í¸¹ıfindViewById½¨¹¹Èı¸ö¶ÔÏó*/ 
-    mImageButton1 =(ImageView) findViewById(R.id.myImageButton1);//.....Ó¦¸ÃÉèÖÃÒ»¸ö´øÓĞÊı×ÖµÄ±³¾° 
+    mImageButton1 =(ImageView) findViewById(R.id.myImageButton1);
     mTextView1 = (TextView) findViewById(R.id.myTextView1);
-    String str1="ËùÒÔÄãµÄ";String str2="ÃÕµ×ÊÇ£º£¿\n µã»÷²é¿´ÅÆÃæ¡£";
+    String str1="æ‰€ä»¥ä½ çš„";String str2="è°œåº•æ˜¯ï¼šï¼Ÿ\n ç‚¹å‡»æŸ¥çœ‹ç‰Œé¢ã€‚";
     mTextView1.setText(str1+question+str2);
     mTextView2=(TextView)findViewById(R.id.text1);
-    
-    /*Í¸¹ıonClickListenerÀ´ÏìÓ¦ImageButtonµÄonClickÊÂ¼ş*/ 
+
     mImageButton1.setOnClickListener(new OnClickListener()
     { 
         public void onClick(View v) 
         {
-        // TODO Auto-generated method stub 
-        /*ÈôImageButton×´Ì¬ÎªonClick¸Ä±äImageButtonµÄÍ¼Æ¬ * ²¢¸Ä±ätextViewµÄÎÄ×Ö*/ 
            if (i_1==0)
           {
              mTextView2.setText("");
              switch (i1)
             {
-              case 0:
-                mImageButton1.setImageResource(R.drawable.i0);
-                mTextView1.setText("ÕıÎ»µÄÓŞÈËÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 1:
-                mImageButton1.setImageResource(R.drawable.i1);
-                mTextView1.setText("ÕıÎ»µÄÄ§ÊõÊ¦ÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 2:
-                mImageButton1.setImageResource(R.drawable.i2);
-                mTextView1.setText("ÕıÎ»µÄÅ®¼ÀË¾ÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 3:
-                mImageButton1.setImageResource(R.drawable.i3);
-                mTextView1.setText("ÕıÎ»µÄÅ®»ÊÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 4:
-                mImageButton1.setImageResource(R.drawable.i4);
-                mTextView1.setText("ÕıÎ»µÄ»ÊµÛÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 5:
-                mImageButton1.setImageResource(R.drawable.i5);
-                mTextView1.setText("ÕıÎ»µÄ½Ì×ÚÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 6:
-                mImageButton1.setImageResource(R.drawable.i6);
-                mTextView1.setText("ÕıÎ»µÄÁµÈËÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 7:
-                mImageButton1.setImageResource(R.drawable.i7);
-                mTextView1.setText("ÕıÎ»µÄÕ½³µÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 8:
-                mImageButton1.setImageResource(R.drawable.i8);
-                mTextView1.setText("ÕıÎ»µÄÁ¦Á¿ÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 9:
-                mImageButton1.setImageResource(R.drawable.i9);
-                mTextView1.setText("ÕıÎ»µÄÒşÊ¿ÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 10:
-                mImageButton1.setImageResource(R.drawable.i10);
-                mTextView1.setText("ÕıÎ»µÄÃüÔËÖ®ÂÖÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 11:
-                mImageButton1.setImageResource(R.drawable.i11);
-                mTextView1.setText("ÕıÎ»µÄÕıÒåÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 12:
-                mImageButton1.setImageResource(R.drawable.i12);
-                mTextView1.setText("ÕıÎ»µÄµ¹µõÕßÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 13:
-                mImageButton1.setImageResource(R.drawable.i13);
-                mTextView1.setText("ÕıÎ»µÄËÀÉñÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 14:
-                mImageButton1.setImageResource(R.drawable.i14);
-                mTextView1.setText("ÕıÎ»µÄ½ÚÖÆÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 15:
-                mImageButton1.setImageResource(R.drawable.i15);
-                mTextView1.setText("ÕıÎ»µÄ¶ñÄ§ÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 16:
-                mImageButton1.setImageResource(R.drawable.i16);
-                mTextView1.setText("ÕıÎ»µÄËşÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 17:
-                mImageButton1.setImageResource(R.drawable.i17);
-                mTextView1.setText("ÕıÎ»µÄĞÇĞÇÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 18:
-                mImageButton1.setImageResource(R.drawable.i18);
-                mTextView1.setText("ÕıÎ»µÄÔÂÁÁÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 19:
-                mImageButton1.setImageResource(R.drawable.i19);
-                mTextView1.setText("ÕıÎ»µÄÌ«ÑôÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 20:
-                mImageButton1.setImageResource(R.drawable.i20);
-                mTextView1.setText("ÕıÎ»µÄÉóÅĞÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 21:
-                mImageButton1.setImageResource(R.drawable.i21);
-                mTextView1.setText("ÕıÎ»µÄÊÀ½çÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 22:
-                mImageButton1.setImageResource(R.drawable.i21);
-                mTextView1.setText("ÄæÎ»µÄÓŞÈËÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 23:
-                mImageButton1.setImageResource(R.drawable.i23);
-                mTextView1.setText("ÄæÎ»µÄÄ§ÊõÊ¦ÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 24:
-                mImageButton1.setImageResource(R.drawable.i24);
-                mTextView1.setText("ÄæÎ»µÄÅ®¼ÀË¾ÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 25:
-                mImageButton1.setImageResource(R.drawable.i25);
-                mTextView1.setText("ÄæÎ»µÄÅ®»ÊÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 26:
-                mImageButton1.setImageResource(R.drawable.i26);
-                mTextView1.setText("ÄæÎ»µÄ»ÊµÛÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 27:
-                mImageButton1.setImageResource(R.drawable.i27);
-                mTextView1.setText("ÄæÎ»µÄ½Ì×ÚÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 28:
-                mImageButton1.setImageResource(R.drawable.i28);
-                mTextView1.setText("ÄæÎ»µÄÁµÈËÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 29:
-                mImageButton1.setImageResource(R.drawable.i29);
-                mTextView1.setText("ÄæÎ»µÄÕ½³µÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 30:
-                mImageButton1.setImageResource(R.drawable.i30);
-                mTextView1.setText("ÄæÎ»µÄÁ¦Á¿ÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 31:
-                mImageButton1.setImageResource(R.drawable.i31);
-                mTextView1.setText("ÄæÎ»µÄÒşÊ¿ÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 32:
-                mImageButton1.setImageResource(R.drawable.i32);
-                mTextView1.setText("ÄæÎ»µÄÃüÔËÖ®ÂÖÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 33:
-                mImageButton1.setImageResource(R.drawable.i33);
-                mTextView1.setText("ÄæÎ»µÄÕıÒåÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 34:
-                mImageButton1.setImageResource(R.drawable.i34);
-                mTextView1.setText("ÄæÎ»µÄµ¹µõÕßÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 35:
-                mImageButton1.setImageResource(R.drawable.i35);
-                mTextView1.setText("ÄæÎ»µÄËÀÉñÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 36:
-                mImageButton1.setImageResource(R.drawable.i36);
-                mTextView1.setText("ÄæÎ»µÄ½ÚÖÆÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 37:
-                mImageButton1.setImageResource(R.drawable.i37);
-                mTextView1.setText("ÄæÎ»µÄ¶ñÄ§ÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 38:
-                mImageButton1.setImageResource(R.drawable.i38);
-                mTextView1.setText("ÄæÎ»µÄËşÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 39:
-                mImageButton1.setImageResource(R.drawable.i39);
-                mTextView1.setText("ÄæÎ»µÄĞÇĞÇÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 40:
-                mImageButton1.setImageResource(R.drawable.i40);
-                mTextView1.setText("ÄæÎ»µÄÔÂÁÁÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 41:
-                mImageButton1.setImageResource(R.drawable.i41);
-                mTextView1.setText("ÄæÎ»µÄÌ«ÑôÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 42:
-                mImageButton1.setImageResource(R.drawable.i42);
-                mTextView1.setText("ÄæÎ»µÄÉóÅĞÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
-              case 43:
-                mImageButton1.setImageResource(R.drawable.i43);
-                mTextView1.setText("ÄæÎ»µÄÊÀ½çÅÆ£¡\n ¼ÌĞøµã»÷²é¿´ÅÆÒå¡£");
-                break;
+                case 0:
+                    mImageButton1.setImageResource(R.drawable.i0);
+                    mTextView1.setText("æ­£ä½çš„æ„šäººç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 1:
+                    mImageButton1.setImageResource(R.drawable.i1);
+                    mTextView1.setText("æ­£ä½çš„é­”æœ¯å¸ˆç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 2:
+                    mImageButton1.setImageResource(R.drawable.i2);
+                    mTextView1.setText("æ­£ä½çš„å¥³ç¥­å¸ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 3:
+                    mImageButton1.setImageResource(R.drawable.i3);
+                    mTextView1.setText("æ­£ä½çš„å¥³çš‡ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 4:
+                    mImageButton1.setImageResource(R.drawable.i4);
+                    mTextView1.setText("æ­£ä½çš„çš‡å¸ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 5:
+                    mImageButton1.setImageResource(R.drawable.i5);
+                    mTextView1.setText("æ­£ä½çš„æ•™å®—ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 6:
+                    mImageButton1.setImageResource(R.drawable.i6);
+                    mTextView1.setText("æ­£ä½çš„æ‹äººç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 7:
+                    mImageButton1.setImageResource(R.drawable.i7);
+                    mTextView1.setText("æ­£ä½çš„æˆ˜è½¦ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 8:
+                    mImageButton1.setImageResource(R.drawable.i8);
+                    mTextView1.setText("æ­£ä½çš„åŠ›é‡ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 9:
+                    mImageButton1.setImageResource(R.drawable.i9);
+                    mTextView1.setText("æ­£ä½çš„éšå£«ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 10:
+                    mImageButton1.setImageResource(R.drawable.i10);
+                    mTextView1.setText("æ­£ä½çš„å‘½è¿ä¹‹è½®ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 11:
+                    mImageButton1.setImageResource(R.drawable.i11);
+                    mTextView1.setText("æ­£ä½çš„æ­£ä¹‰ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 12:
+                    mImageButton1.setImageResource(R.drawable.i12);
+                    mTextView1.setText("æ­£ä½çš„å€’åŠè€…ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 13:
+                    mImageButton1.setImageResource(R.drawable.i13);
+                    mTextView1.setText("æ­£ä½çš„æ­»ç¥ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 14:
+                    mImageButton1.setImageResource(R.drawable.i14);
+                    mTextView1.setText("æ­£ä½çš„èŠ‚åˆ¶ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 15:
+                    mImageButton1.setImageResource(R.drawable.i15);
+                    mTextView1.setText("æ­£ä½çš„æ¶é­”ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 16:
+                    mImageButton1.setImageResource(R.drawable.i16);
+                    mTextView1.setText("æ­£ä½çš„å¡”ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 17:
+                    mImageButton1.setImageResource(R.drawable.i17);
+                    mTextView1.setText("æ­£ä½çš„æ˜Ÿæ˜Ÿç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 18:
+                    mImageButton1.setImageResource(R.drawable.i18);
+                    mTextView1.setText("æ­£ä½çš„æœˆäº®ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 19:
+                    mImageButton1.setImageResource(R.drawable.i19);
+                    mTextView1.setText("æ­£ä½çš„å¤ªé˜³ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 20:
+                    mImageButton1.setImageResource(R.drawable.i20);
+                    mTextView1.setText("æ­£ä½çš„å®¡åˆ¤ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 21:
+                    mImageButton1.setImageResource(R.drawable.i21);
+                    mTextView1.setText("æ­£ä½çš„ä¸–ç•Œç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 22:
+                    mImageButton1.setImageResource(R.drawable.i21);
+                    mTextView1.setText("é€†ä½çš„æ„šäººç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 23:
+                    mImageButton1.setImageResource(R.drawable.i23);
+                    mTextView1.setText("é€†ä½çš„é­”æœ¯å¸ˆç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 24:
+                    mImageButton1.setImageResource(R.drawable.i24);
+                    mTextView1.setText("é€†ä½çš„å¥³ç¥­å¸ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 25:
+                    mImageButton1.setImageResource(R.drawable.i25);
+                    mTextView1.setText("é€†ä½çš„å¥³çš‡ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 26:
+                    mImageButton1.setImageResource(R.drawable.i26);
+                    mTextView1.setText("é€†ä½çš„çš‡å¸ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 27:
+                    mImageButton1.setImageResource(R.drawable.i27);
+                    mTextView1.setText("é€†ä½çš„æ•™å®—ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 28:
+                    mImageButton1.setImageResource(R.drawable.i28);
+                    mTextView1.setText("é€†ä½çš„æ‹äººç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 29:
+                    mImageButton1.setImageResource(R.drawable.i29);
+                    mTextView1.setText("é€†ä½çš„æˆ˜è½¦ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 30:
+                    mImageButton1.setImageResource(R.drawable.i30);
+                    mTextView1.setText("é€†ä½çš„åŠ›é‡ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 31:
+                    mImageButton1.setImageResource(R.drawable.i31);
+                    mTextView1.setText("é€†ä½çš„éšå£«ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 32:
+                    mImageButton1.setImageResource(R.drawable.i32);
+                    mTextView1.setText("é€†ä½çš„å‘½è¿ä¹‹è½®ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 33:
+                    mImageButton1.setImageResource(R.drawable.i33);
+                    mTextView1.setText("é€†ä½çš„æ­£ä¹‰ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 34:
+                    mImageButton1.setImageResource(R.drawable.i34);
+                    mTextView1.setText("é€†ä½çš„å€’åŠè€…ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 35:
+                    mImageButton1.setImageResource(R.drawable.i35);
+                    mTextView1.setText("é€†ä½çš„æ­»ç¥ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 36:
+                    mImageButton1.setImageResource(R.drawable.i36);
+                    mTextView1.setText("é€†ä½çš„èŠ‚åˆ¶ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 37:
+                    mImageButton1.setImageResource(R.drawable.i37);
+                    mTextView1.setText("é€†ä½çš„æ¶é­”ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 38:
+                    mImageButton1.setImageResource(R.drawable.i38);
+                    mTextView1.setText("é€†ä½çš„å¡”ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 39:
+                    mImageButton1.setImageResource(R.drawable.i39);
+                    mTextView1.setText("é€†ä½çš„æ˜Ÿæ˜Ÿç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 40:
+                    mImageButton1.setImageResource(R.drawable.i40);
+                    mTextView1.setText("é€†ä½çš„æœˆäº®ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 41:
+                    mImageButton1.setImageResource(R.drawable.i41);
+                    mTextView1.setText("é€†ä½çš„å¤ªé˜³ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 42:
+                    mImageButton1.setImageResource(R.drawable.i42);
+                    mTextView1.setText("é€†ä½çš„å®¡åˆ¤ç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
+                case 43:
+                    mImageButton1.setImageResource(R.drawable.i43);
+                    mTextView1.setText("é€†ä½çš„ä¸–ç•Œç‰Œï¼\n ç»§ç»­ç‚¹å‡»æŸ¥çœ‹ç‰Œä¹‰ã€‚");
+                    break;
               
               default:
                 break;
@@ -285,623 +268,184 @@ public class cardarray1 extends Activity
              i_1=1;
           }
            else {
+               int titleRes;
              switch (i1)
              {
                case 0:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t0_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t0_0;
+                   initAlertDialog(titleRes);
                  break;
                case 1:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t1_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
-                 break;
+                   titleRes = R.string.t1_0;
+                   initAlertDialog(titleRes);
+                   break;
                case 2:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t2_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£¡£");                
-                 break;
+                   titleRes = R.string.t2_0;
+                   initAlertDialog(titleRes);
+                   break;
                case 3:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t3_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t3_0;
+                   initAlertDialog(titleRes);
                  break;
                case 4:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t4_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t4_0;
+                   initAlertDialog(titleRes);
                  break;
                case 5:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t5_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t5_0;
+                   initAlertDialog(titleRes);
                  break;
                case 6:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t6_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t6_0;
+                   initAlertDialog(titleRes);
                  break;
                case 7:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t7_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t7_0;
+                   initAlertDialog(titleRes);
                  break;
                case 8:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t8_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t8_0;
+                   initAlertDialog(titleRes);
                  break;
                case 9:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t9_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t9_0;
+                   initAlertDialog(titleRes);
                  break;
                case 10:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t10_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t10_0;
+                   initAlertDialog(titleRes);
                  break;
                case 11:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t11_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£¡£");                
+                   titleRes = R.string.t11_0;
+                   initAlertDialog(titleRes);
                  break;
                case 12:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t12_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t12_0;
+                   initAlertDialog(titleRes);
                  break;
                case 13:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t13_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t13_0;
+                   initAlertDialog(titleRes);
                  break;
                case 14:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t14_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t14_0;
+                   initAlertDialog(titleRes);
                  break;
                case 15:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t15_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t15_0;
+                   initAlertDialog(titleRes);
                  break;
                case 16:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t16_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t16_0;
+                   initAlertDialog(titleRes);
                  break;
                case 17:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t17_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t17_0;
+                   initAlertDialog(titleRes);
                  break;
                case 18:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t18_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t18_0;
+                   initAlertDialog(titleRes);
                  break;
                case 19:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t19_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t19_0;
+                   initAlertDialog(titleRes);
                  break;
                case 20:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t20_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t20_0;
+                   initAlertDialog(titleRes);
                  break;
                case 21:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t21_0)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t21_0;
+                   initAlertDialog(titleRes);
                  break;
                case 22:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t0_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t0_1;
+                   initAlertDialog(titleRes);
                  break;
                case 23:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t1_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t1_1;
+                   initAlertDialog(titleRes);
                  break;
                case 24:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t2_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£¡£");                
+                   titleRes = R.string.t2_1;
+                   initAlertDialog(titleRes);
                  break;
                case 25:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t3_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t3_1;
+                   initAlertDialog(titleRes);
                  break;
                case 26:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t4_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t4_1;
+                   initAlertDialog(titleRes);
                  break;
                case 27:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t5_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t5_1;
+                   initAlertDialog(titleRes);
                  break;
                case 28:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t6_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t6_1;
+                   initAlertDialog(titleRes);
                  break;
                case 29:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t7_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t7_1;
+                   initAlertDialog(titleRes);
                  break;
                case 30:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t8_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t8_1;
+                   initAlertDialog(titleRes);
                  break;
                case 31:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t9_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t9_1;
+                   initAlertDialog(titleRes);
                  break;
                case 32:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t10_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t10_1;
+                   initAlertDialog(titleRes);
                  break;
                case 33:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t11_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£¡£");                
+                   titleRes = R.string.t11_1;
+                   initAlertDialog(titleRes);
                  break;
                case 34:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t12_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t12_1;
+                   initAlertDialog(titleRes);
                  break;
                case 35:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t13_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t13_1;
+                   initAlertDialog(titleRes);
                  break;
                case 36:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t14_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t14_1;
+                   initAlertDialog(titleRes);
                  break;
                case 37:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t15_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t15_1;
+                   initAlertDialog(titleRes);
                  break;
                case 38:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t16_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t16_1;
+                   initAlertDialog(titleRes);
                  break;
                case 39:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t17_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t17_1;
+                   initAlertDialog(titleRes);
                  break;
                case 40:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t18_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t18_1;
+                   initAlertDialog(titleRes);
                  break;
                case 41:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t19_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t19_1;
+                   initAlertDialog(titleRes);
                  break;
                case 42:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t20_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t20_1;
+                   initAlertDialog(titleRes);
                  break;
                case 43:
-                 new AlertDialog.Builder(cardarray1.this).setTitle("").setMessage(R.string.t21_1)
-                 .setPositiveButton("OK", 
-                     new DialogInterface.OnClickListener()
-                    {
-                      
-                      @Override
-                      public void onClick(DialogInterface dialog, int which)
-                      {
-                        // TODO Auto-generated method stub                        
-                      }
-                    }).show();
-                 mTextView1.setText("ÌìÀÇĞÇµÄÊ¹ÕßÒÑ¸ø³öÄãÏëÒªµÄ´ğ°¸ÁË£¬¶øÄãËùÒª×öµÄ¾ÍÊÇÖ±Ãæ×Ô¼ºµÄÄÚĞÄ¡£\nÁ½Ö¸´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶¡£");                
+                   titleRes = R.string.t21_1;
+                   initAlertDialog(titleRes);
                  break;
 
                default:
@@ -913,4 +457,19 @@ public class cardarray1 extends Activity
          }
      } );
   }
+
+    private void initAlertDialog(int titleRes) {
+        new AlertDialog.Builder(CardArray1.this).setTitle("").setMessage(titleRes)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener()
+                        {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                // TODO Auto-generated method stub
+                            }
+                        }).show();
+        mTextView1.setText("æ¾¶â•ƒï¿½å…¼ï¿½ï¿½ï¿½ï¿½ï¿½æµ£èƒ¯ï¿½ï¿½å®¸èŒ¬ï¿½ï¿½ï¿½ï¿½è½°ï¿½ï¿½ï¿½ï¿½å® ï¿½ï¿½ï¿½ï¿½ï¿½ç»›ï¿½å¦—ï¿½æµœï¿½é”›ï¿½ï¿½ï¿½ï¿½æµ£ï¿½ï¿½ï¿½ï¿½ç‘•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½çè¾¨ï¿½ï¿½ï¿½ï¿½æ’®ï¿½ãˆ£ï¿½ï¿½å®¸è¾©ï¿½ï¿½ï¿½ï¿½ï¿½è¹‡ï¿½ï¿½ï¿½ï¿½\næ¶“ã‚†ï¿½ï¿½ç‘™ï¿½ï¿½ï¿½Ñƒï¿½ï¿½éªï¿½æµ ãƒ¨ï¿½ï¿½ï¿½ï¿½ï¿½æ¶“ï¿½æ¶“ï¿½ç»¾Ñï¿½ï¿½");
+    }
 }
