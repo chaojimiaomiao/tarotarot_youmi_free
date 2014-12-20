@@ -18,130 +18,129 @@ import android.widget.Toast;
 
 public class Choose2 extends Activity
 {
-  private ImageView g_01Button;
-  private ImageView g_02Button;
-  private ImageView g_03Button;
-  
-  public boolean onTouchEvent(MotionEvent event) 
-  {   
-    /* eventµÄAction?¶Ï */
-    if(event.getPointerCount()>1)
-    {
-      Intent intent=new Intent();
-      intent.setClass(Choose2.this, choose.class);
-      startActivity(intent);
-      choose.myMediaPlayer.stop();
-      Choose2.this.finish();
-    }
+    private ImageView g_01Button;
+    private ImageView g_02Button;
+    private ImageView g_03Button;
 
-    return super.onTouchEvent(event);
-  }
-  @Override
-  public boolean onKeyDown(int keyCode, KeyEvent event) {
-    
-    //°´ÏÂ¼üÅÌÉÏ·µ»Ø°´Å¥
-    if(keyCode == KeyEvent.KEYCODE_BACK){
-      Intent intent=new Intent();
-      intent.setClass(Choose2.this, choose.class);
-      startActivity(intent);
-      choose.myMediaPlayer.stop();
-      Choose2.this.finish();
-      return true;
-    }else{    
-      return super.onKeyDown(keyCode, event);
+    public boolean onTouchEvent(MotionEvent event)
+    {
+        if(event.getPointerCount()>1)
+        {
+            Intent intent=new Intent();
+            intent.setClass(Choose2.this, ChooseMain.class);
+            startActivity(intent);
+            ChooseMain.myMediaPlayer.stop();
+            Choose2.this.finish();
+        }
+
+        return super.onTouchEvent(event);
     }
-  }
-  @Override
-  public void onCreate(Bundle savedInstanceState)
-  {
-    super.onCreate(savedInstanceState);
-  //Òş²Ø×´Ì¬À¸£¬Ê¹imageviewÈ«ÆÁÏÔÊ¾
-    this.getWindow().setFlags
-    (
-        WindowManager.LayoutParams.FLAG_FULLSCREEN,
-        WindowManager.LayoutParams.FLAG_FULLSCREEN
-    );
-    //Òş²Ø±êÌâÀ¸
-    requestWindowFeature(Window.FEATURE_NO_TITLE);
-    
-    setContentView(R.layout.main2);
-    g_01Button=(ImageView)findViewById(R.id.button1);
-    g_02Button=(ImageView)findViewById(R.id.button2);
-    g_03Button=(ImageView)findViewById(R.id.button3);
-    Toast toast=Toast.makeText(Choose2.this, "¶àµã´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶", Toast.LENGTH_SHORT);
-    toast.setGravity(Gravity.TOP, 10, 10);
-    toast.show();
-    g_01Button.setOnFocusChangeListener(new OnFocusChangeListener()
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        //æŒ‰ä¸‹é”®ç›˜ä¸Šè¿”å›æŒ‰é’®
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            Intent intent=new Intent();
+            intent.setClass(Choose2.this, ChooseMain.class);
+            startActivity(intent);
+            ChooseMain.myMediaPlayer.stop();
+            Choose2.this.finish();
+            return true;
+        }else{
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState)
     {
-      public void onFocusChange(View arg0,boolean isFocused)
-      {
-        g_01Button.setImageResource(R.drawable.cards_1_down);
-      } 
-    });
-    g_01Button.setOnClickListener(new Button.OnClickListener()
-    {
-      @Override
-      public void onClick(View v)
-      {
-        g_01Button.setImageResource(R.drawable.cards_1_down);
-        Intent intent=new Intent();
-        intent.setClass(Choose2.this, shuffle.class);
-        Bundle bundle =new Bundle();
-        bundle.putInt("key", 1);
-        intent.putExtras(bundle);
-        //µ÷ÓÃÒ»¸öĞÂµÄActivity
-        startActivity(intent);
-        //¹Ø±ÕÔ­±¾µÄActivity
-        Choose2.this.finish();
-      }
-    });
-    g_02Button.setOnFocusChangeListener(new OnFocusChangeListener()
-    {
-      public void onFocusChange(View arg0,boolean isFocused)
-      {
-        g_02Button.setImageResource(R.drawable.cards_2_down);
-      } 
-    });
-    g_02Button.setOnClickListener(new Button.OnClickListener()
-    {
-      @Override
-      public void onClick(View v)
-      {
-        g_02Button.setImageResource(R.drawable.cards_2_down);
-        Intent intent=new Intent();
-        intent.setClass(Choose2.this, shuffle.class);
-        Bundle bundle =new Bundle();
-        bundle.putInt("key", 2);
-        intent.putExtras(bundle);
-        //µ÷ÓÃÒ»¸öĞÂµÄActivity
-        startActivity(intent);
-        //¹Ø±ÕÔ­±¾µÄActivity
-        Choose2.this.finish();
-      }
-    });
-    g_03Button.setOnFocusChangeListener(new OnFocusChangeListener()
-    {
-      public void onFocusChange(View arg0,boolean isFocused)
-      {
-        g_03Button.setImageResource(R.drawable.cards_3_down);
-      } 
-    });
-    g_03Button.setOnClickListener(new Button.OnClickListener()
-    {
-      @Override
-      public void onClick(View v)
-      {
-        g_03Button.setImageResource(R.drawable.cards_3_down);
-        Intent intent=new Intent();
-        intent.setClass(Choose2.this, shuffle.class);
-        Bundle bundle =new Bundle();
-        bundle.putInt("key", 3);
-        intent.putExtras(bundle);
-        //µ÷ÓÃÒ»¸öĞÂµÄActivity
-        startActivity(intent);
-        //¹Ø±ÕÔ­±¾µÄActivity
-        Choose2.this.finish();
-      }
-    });
-  }
+        super.onCreate(savedInstanceState);
+        //éšè—çŠ¶æ€æ ï¼Œä½¿imageviewå…¨å±æ˜¾ç¤º
+        this.getWindow().setFlags
+                (
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN
+                );
+        //éšè—æ ‡é¢˜æ 
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        setContentView(R.layout.main2);
+        g_01Button=(ImageView)findViewById(R.id.button1);
+        g_02Button=(ImageView)findViewById(R.id.button2);
+        g_03Button=(ImageView)findViewById(R.id.button3);
+        Toast toast=Toast.makeText(Choose2.this, "å¤šç‚¹è§¦æ§å±å¹•ä»¥è¿”å›ä¸Šä¸€çº§", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP, 10, 10);
+        toast.show();
+        g_01Button.setOnFocusChangeListener(new OnFocusChangeListener()
+        {
+            public void onFocusChange(View arg0,boolean isFocused)
+            {
+                g_01Button.setImageResource(R.drawable.cards_1_down);
+            }
+        });
+        g_01Button.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                g_01Button.setImageResource(R.drawable.cards_1_down);
+                Intent intent=new Intent();
+                intent.setClass(Choose2.this, shuffle.class);
+                Bundle bundle =new Bundle();
+                bundle.putInt("key", 1);
+                intent.putExtras(bundle);
+                //è°ƒç”¨ä¸€ä¸ªæ–°çš„Activity
+                startActivity(intent);
+                //å…³é—­åŸæœ¬çš„Activity
+                Choose2.this.finish();
+            }
+        });
+        g_02Button.setOnFocusChangeListener(new OnFocusChangeListener()
+        {
+            public void onFocusChange(View arg0,boolean isFocused)
+            {
+                g_02Button.setImageResource(R.drawable.cards_2_down);
+            }
+        });
+        g_02Button.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                g_02Button.setImageResource(R.drawable.cards_2_down);
+                Intent intent=new Intent();
+                intent.setClass(Choose2.this, shuffle.class);
+                Bundle bundle =new Bundle();
+                bundle.putInt("key", 2);
+                intent.putExtras(bundle);
+                //è°ƒç”¨ä¸€ä¸ªæ–°çš„Activity
+                startActivity(intent);
+                //å…³é—­åŸæœ¬çš„Activity
+                Choose2.this.finish();
+            }
+        });
+        g_03Button.setOnFocusChangeListener(new OnFocusChangeListener()
+        {
+            public void onFocusChange(View arg0,boolean isFocused)
+            {
+                g_03Button.setImageResource(R.drawable.cards_3_down);
+            }
+        });
+        g_03Button.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                g_03Button.setImageResource(R.drawable.cards_3_down);
+                Intent intent=new Intent();
+                intent.setClass(Choose2.this, shuffle.class);
+                Bundle bundle =new Bundle();
+                bundle.putInt("key", 3);
+                intent.putExtras(bundle);
+                //è°ƒç”¨ä¸€ä¸ªæ–°çš„Activity
+                startActivity(intent);
+                //å…³é—­åŸæœ¬çš„Activity
+                Choose2.this.finish();
+            }
+        });
+    }
 }

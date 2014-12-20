@@ -4,7 +4,7 @@
       android:versionCode="1"
       android:versionName="1.0.0">
     <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".choose"
+        <activity android:name=".ChooseMain"
                   android:label="@string/app_name" android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,8 +17,8 @@
         <activity android:name="shuffle" android:screenOrientation="nosensor"></activity>
         <activity android:name="editText" android:screenOrientation="nosensor"></activity>
         <activity android:name=".CardArray1" android:screenOrientation="nosensor"></activity>
-        <activity android:name="cardarray2" android:screenOrientation="nosensor"></activity>
-        <activity android:name="cardarray3" android:screenOrientation="nosensor"></activity>
+        <activity android:name=".CardArray3" android:screenOrientation="nosensor"></activity>
+        <activity android:name=".CardArray3" android:screenOrientation="nosensor"></activity>
     </application>
 <uses-permission android:name="android.permission.RESTART_PACKAGES" /> 
     <!-- 连接网络权限 ，用于请求广告(必须)-->  

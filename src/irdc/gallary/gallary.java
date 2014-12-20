@@ -1,12 +1,13 @@
-package irdc.gallary; 
+package irdc.gallary;
 
 import irdc.gallary.R.string;
+
 import android.R.integer;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.TextView; /*ÓûÔÚLayoutÀïÊ¹ÓÃGallery widget£¬±ØĞëÒıÓÃÕâĞ©Ä£¿é*/ 
-import android.content.Context; 
+import android.widget.TextView; /*ï¿½ï¿½ï¿½ï¿½Layoutï¿½ï¿½Ê¹ï¿½ï¿½Gallery widgetï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ©Ä£ï¿½ï¿½*/
+import android.content.Context;
 import android.content.Intent;
 import android.widget.Gallery;
 import android.view.Gravity;
@@ -21,208 +22,207 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast; 
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class gallary extends Activity { 
-  private TextView mTextView01;
-  public String preString;
-  private ImageView b1;
-  public static int Pos;
-  
-  public boolean onTouchEvent(MotionEvent event) 
-  {   
-    /* eventµÄAction?¶Ï */
-    if(event.getPointerCount()>1)
-    {
-      Intent intent=new Intent();
-      intent.setClass(gallary.this, choose.class);
-      startActivity(intent);
-      choose.myMediaPlayer.stop();
-      gallary.this.finish();
+public class gallary extends Activity {
+    public String preString;
+    private ImageView b1;
+    public static int Pos;
+
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getPointerCount() > 1) {
+            Intent intent = new Intent();
+            intent.setClass(gallary.this, ChooseMain.class);
+            startActivity(intent);
+            ChooseMain.myMediaPlayer.stop();
+            gallary.this.finish();
+        }
+
+        return super.onTouchEvent(event);
     }
 
-    return super.onTouchEvent(event);
-  }
-  @Override
-  public boolean onKeyDown(int keyCode, KeyEvent event) {
-    
-    //°´ÏÂ¼üÅÌÉÏ·µ»Ø°´Å¥
-    if(keyCode == KeyEvent.KEYCODE_BACK){
-      Intent intent=new Intent();
-      intent.setClass(gallary.this, choose.class);
-      startActivity(intent);
-      choose.myMediaPlayer.stop();
-      gallary.this.finish();
-      return true;
-    }else{    
-      return super.onKeyDown(keyCode, event);
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        //ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½Ø°ï¿½Å¥
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent intent = new Intent();
+            intent.setClass(gallary.this, ChooseMain.class);
+            startActivity(intent);
+            ChooseMain.myMediaPlayer.stop();
+            gallary.this.finish();
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
     }
-  }
-/** Called when the activity is first created. */ 
-@Override 
-public void onCreate(Bundle savedInstanceState) { 
-  super.onCreate(savedInstanceState); 
-//Òş²Ø×´Ì¬À¸£¬Ê¹imageviewÈ«ÆÁÏÔÊ¾
-  this.getWindow().setFlags
-  (
-      WindowManager.LayoutParams.FLAG_FULLSCREEN,
-      WindowManager.LayoutParams.FLAG_FULLSCREEN
-  );
-  //Òş²Ø±êÌâÀ¸
-  requestWindowFeature(Window.FEATURE_NO_TITLE);
-setContentView(R.layout.main1_01);
-Toast toast=Toast.makeText(gallary.this, "¶àµã´¥¿ØÆÁÄ»ÒÔ·µ»ØÉÏÒ»¼¶", Toast.LENGTH_LONG);
-toast.setGravity(Gravity.TOP, 10, 10);
-toast.show();
-b1=(ImageView)findViewById(R.id.button1);
 
-b1.setOnClickListener(new Button.OnClickListener()
-{
-  @Override
-  public void onClick(View v)
-  {
-    b1.setImageResource(R.drawable.detail_down);
-    Intent intent=new Intent();
-    intent.setClass(gallary.this, SimIntro.class);
-    //µ÷ÓÃÒ»¸öĞÂµÄActivity
-    startActivity(intent);
-    //¹Ø±ÕÔ­±¾µÄActivity
-    gallary.this.finish();
-  }
-});
+    /**
+     * Called when the activity is first created.
+     */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.getWindow().setFlags
+                (
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN
+                );
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.main1_01);
+        Toast toast = Toast.makeText(gallary.this, "å¤šç‚¹è§¦æ§å±å¹•ä»¥è¿”å›ä¸Šä¸€çº§", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.TOP, 10, 10);
+        toast.show();
+        b1 = (ImageView) findViewById(R.id.button1);
 
-Gallery g=(Gallery) findViewById(R.id.myGallery1);
-g.setAdapter(new ImageAdapter(this)); 
+        b1.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                b1.setImageResource(R.drawable.detail_down);
+                Intent intent = new Intent();
+                intent.setClass(gallary.this, SimIntro.class);
+                startActivity(intent);
+                gallary.this.finish();
+            }
+        });
+
+        Gallery g = (Gallery) findViewById(R.id.myGallery1);
+        g.setAdapter(new ImageAdapter(this));
 //    Pos=position;//                                ...............................
-g.setOnItemClickListener(new OnItemClickListener()
-{
-  public void onItemClick(AdapterView<?>parent,View v,int position,long id)
-  {
-    Pos=position;
-    switch (position)
-    {
-    case 0:
-      preString="ÓŞÈË";  
-      break;
-    case 1:
-      preString="Ä§ÊõÊ¦"; 
-      break;
-    case 2:
-      preString="Å®¼ÀË¾";      
-      break;
-    case 3:
-      preString="Íõºó";      
-      break;
-    case 4:
-      preString="¹úÍõ";      
-      break;
-    case 5:
-      preString="½Ì»Ê";      
-      break;
-    case 6:
-      preString="ÁµÈË";      
-      break;
-    case 7:
-      preString="Õ½³µ";      
-      break;
-    case 8:
-      preString="Á¦Á¿";      
-      break;
-    case 9:
-      preString="ÒşÊ¿";      
-      break;
-    case 10:
-      preString="ÃüÔËÖ®ÂÖ";      
-      break;
-    case 11:
-      preString="ÕıÒå";      
-      break;
-    case 12:
-      preString="µ¹µõÕß";      
-      break;
-    case 13:
-      preString="ËÀÉñ";      
-      break;
-    case 14:
-      preString="½ÚÖÆ";      
-      break;
-    case 15:
-      preString="¶ñÄ§";      
-      break;
-    case 16:
-      preString="Ëş";      
-      break;
-    case 17:
-      preString="ĞÇ³½";      
-      break;
-    case 18:
-      preString="ÔÂÁÁ";      
-      break;
-    case 19:
-      preString="Ì«Ñô";      
-      break;
-    case 20:
-      preString="ÉóÅĞ";      
-      break;
-    case 21:
-      preString="ÊÀ½ç";      
-      break;
+        g.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                Pos = position;
+                switch (position) {
+                    case 0:
+                        preString="æ„šäºº";
+                        break;
+                    case 1:
+                        preString="é­”æœ¯å¸ˆ";
+                        break;
+                    case 2:
+                        preString="å¥³ç¥­å¸";
+                        break;
+                    case 3:
+                        preString="ç‹å";
+                        break;
+                    case 4:
+                        preString="å›½ç‹";
+                        break;
+                    case 5:
+                        preString="æ•™çš‡";
+                        break;
+                    case 6:
+                        preString="æ‹äºº";
+                        break;
+                    case 7:
+                        preString="æˆ˜è½¦";
+                        break;
+                    case 8:
+                        preString="åŠ›é‡";
+                        break;
+                    case 9:
+                        preString="éšå£«";
+                        break;
+                    case 10:
+                        preString="å‘½è¿ä¹‹è½®";
+                        break;
+                    case 11:
+                        preString="æ­£ä¹‰";
+                        break;
+                    case 12:
+                        preString="å€’åŠè€…";
+                        break;
+                    case 13:
+                        preString="æ­»ç¥";
+                        break;
+                    case 14:
+                        preString="èŠ‚åˆ¶";
+                        break;
+                    case 15:
+                        preString="æ¶é­”";
+                        break;
+                    case 16:
+                        preString="å¡”";
+                        break;
+                    case 17:
+                        preString="æ˜Ÿè¾°";
+                        break;
+                    case 18:
+                        preString="æœˆäº®";
+                        break;
+                    case 19:
+                        preString="å¤ªé˜³";
+                        break;
+                    case 20:
+                        preString="å®¡åˆ¤";
+                        break;
+                    case 21:
+                        preString="ä¸–ç•Œ";
+                        break;
 
 
-    default:
-      break;
+                    default:
+                        break;
+                }
+                Toast.makeText(gallary.this, preString, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
-    Toast.makeText(gallary.this, preString, Toast.LENGTH_SHORT).show();
-  }
-});
-} 
-public class ImageAdapter extends BaseAdapter 
-{ /* Àà³ÉÔ± myContextÎªContext¸¸Àà */ 
-  private Context myContext; 
-  
-private int[] myImageIds = 
-{   R.drawable.i0,
-    R.drawable.i1,
-    R.drawable.i2,
-    R.drawable.i3,
-    R.drawable.i4,
-    R.drawable.i5,
-    R.drawable.i6,
-    R.drawable.i7,
-    R.drawable.i8,
-    R.drawable.i9,
-    R.drawable.i10,
-    R.drawable.i11,
-    R.drawable.i12,
-    R.drawable.i13,
-    R.drawable.i14,
-    R.drawable.i15,
-    R.drawable.i16,
-    R.drawable.i17,
-    R.drawable.i18,
-    R.drawable.i19,
-    R.drawable.i20,
-    R.drawable.i21,}; 
-/* ½¨¹¹×ÓÖ»ÓĞÒ»¸ö²ÎÊı£¬¼´Òª´¢´æµÄContext */
-public ImageAdapter(Context c) { this.myContext = c; }
-/* »Ø´«ËùÓĞÒÑ¶¨ÒåµÄÍ¼Æ¬×ÜÊıÁ¿ */ 
-public int getCount() { return this.myImageIds.length; } 
-/* ÀûÓÃgetItem·½·¨£¬È¡µÃÄ¿Ç°ÈİÆ÷ÖĞÓ°ÏñµÄÊı×éID */ 
-public Object getItem(int position) { return position; } 
-public long getItemId(int position) { return position; } 
-/* È¡µÃÄ¿Ç°ÓûÏÔÊ¾µÄÓ°ÏñView£¬´«ÈëÊı×éIDÖµÊ¹Ö®¶ÁÈ¡Óë³ÉÏñ */ 
-public View getView(int position, View convertView, ViewGroup parent)
-{ /* ½¨Á¢Ò»¸öImageView¶ÔÏó */ ImageView i = new ImageView(this.myContext); 
-i.setImageResource(this.myImageIds[position]);
-i.setScaleType(ImageView.ScaleType.FIT_XY);
-/* Éè¶¨Õâ¸öImageView¶ÔÏóµÄ¿í¸ß£¬µ¥Î»Îªdip */
-i.setLayoutParams(new Gallery.LayoutParams(271, 470)); 
-return i; }
-/*ÒÀ¾İ¾àÀëÖĞÑëµÄÎ»ÒÆÁ¿ ÀûÓÃgetScale»Ø´«viewsµÄ´óĞ¡(0.0f to 1.0f)*/ 
-public float getScale(boolean focused, int offset) 
-{ /* Formula: 1 / (2 ^ offset) */ 
-  return Math.max(0,1.0f/(float)Math.pow(2,Math.abs(offset))*1.2f); 
-  }
-} 
+
+    public class ImageAdapter extends BaseAdapter {
+        private Context myContext;
+
+        private int[] myImageIds =
+                {R.drawable.i0,
+                        R.drawable.i1,
+                        R.drawable.i2,
+                        R.drawable.i3,
+                        R.drawable.i4,
+                        R.drawable.i5,
+                        R.drawable.i6,
+                        R.drawable.i7,
+                        R.drawable.i8,
+                        R.drawable.i9,
+                        R.drawable.i10,
+                        R.drawable.i11,
+                        R.drawable.i12,
+                        R.drawable.i13,
+                        R.drawable.i14,
+                        R.drawable.i15,
+                        R.drawable.i16,
+                        R.drawable.i17,
+                        R.drawable.i18,
+                        R.drawable.i19,
+                        R.drawable.i20,
+                        R.drawable.i21,};
+
+        public ImageAdapter(Context c) {
+            this.myContext = c;
+        }
+
+        public int getCount() {
+            return this.myImageIds.length;
+        }
+
+        public Object getItem(int position) {
+            return position;
+        }
+
+        public long getItemId(int position) {
+            return position;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView i = new ImageView(this.myContext);
+            i.setImageResource(this.myImageIds[position]);
+            i.setScaleType(ImageView.ScaleType.FIT_XY);
+            i.setLayoutParams(new Gallery.LayoutParams(271, 470));
+            return i;
+        }
+
+        public float getScale(boolean focused, int offset) { /* Formula: 1 / (2 ^ offset) */
+            return Math.max(0, 1.0f / (float) Math.pow(2, Math.abs(offset)) * 1.2f);
+        }
+    }
 }

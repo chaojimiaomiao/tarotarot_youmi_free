@@ -27,7 +27,7 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name" >
         <activity
-            android:name="irdc.gallary.choose"
+            android:name="irdc.gallary.ChooseMain"
             android:label="@string/app_name"
             android:screenOrientation="nosensor" >
             <intent-filter>
@@ -55,10 +55,10 @@
             android:name="irdc.gallary.CardArray1"
             android:screenOrientation="nosensor" />
         <activity
-            android:name="irdc.gallary.cardarray2"
+            android:name="irdc.gallary.CardArray3"
             android:screenOrientation="nosensor" />
         <activity
-            android:name="irdc.gallary.cardarray3"
+            android:name="irdc.gallary.CardArray3"
             android:screenOrientation="nosensor" />
     </application>
 

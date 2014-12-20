@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.view.View.OnFocusChangeListener;
 
-public class choose extends Activity {
+public class ChooseMain extends Activity {
     private ImageView g_01Button;
     private ImageView g_02Button;
     private ImageView gImageView;
@@ -38,8 +38,8 @@ public class choose extends Activity {
         g_02Button = (ImageView) findViewById(R.id.button2);
         gImageView = (ImageView) findViewById(R.id.image1);
         myMediaPlayer = new MediaPlayer();
-        myMediaPlayer = MediaPlayer.create(choose.this, R.raw.egypt);
-        Toast.makeText(choose.this, "单击水晶球停止音乐", Toast.LENGTH_LONG).show();
+        myMediaPlayer = MediaPlayer.create(ChooseMain.this, R.raw.egypt);
+        Toast.makeText(ChooseMain.this, "单击水晶球停止音乐", Toast.LENGTH_LONG).show();
 
         try {
             if (myMediaPlayer != null) {
@@ -58,7 +58,7 @@ public class choose extends Activity {
                     if (i == 1) {
                         i = 0;
                         if (myMediaPlayer != null) {
-                            Toast.makeText(choose.this, "开始", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ChooseMain.this, "开始", Toast.LENGTH_LONG).show();
                             myMediaPlayer.stop();
                         }
                         myMediaPlayer.prepare();
@@ -66,7 +66,7 @@ public class choose extends Activity {
                     } else if (i == 0) {
                         i = 1;
                         if (myMediaPlayer != null) {
-                            Toast.makeText(choose.this, "停止", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ChooseMain.this, "停止", Toast.LENGTH_LONG).show();
                             myMediaPlayer.stop();
                         }
                     }
@@ -86,9 +86,9 @@ public class choose extends Activity {
             public void onClick(View v) {
                 g_01Button.setImageResource(R.drawable.gallary_selected);
                 Intent intent = new Intent();
-                intent.setClass(choose.this, gallary.class);
+                intent.setClass(ChooseMain.this, gallary.class);
                 startActivity(intent);
-                choose.this.finish();
+                ChooseMain.this.finish();
             }
         });
         g_02Button.setOnFocusChangeListener(new OnFocusChangeListener() {
@@ -101,9 +101,9 @@ public class choose extends Activity {
                                           public void onClick(View v) {
                                               g_02Button.setImageResource(R.drawable.cards_selected);
                                               Intent intent = new Intent();
-                                              intent.setClass(choose.this, Choose2.class);
+                                              intent.setClass(ChooseMain.this, Choose2.class);
                                               startActivity(intent);
-                                              choose.this.finish();
+                                              ChooseMain.this.finish();
                                           }
                                       }
         );

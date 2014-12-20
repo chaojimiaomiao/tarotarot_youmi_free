@@ -1,16 +1,10 @@
 package irdc.gallary;
 
-import java.security.PublicKey;
-import java.util.Arrays;
-import java.util.Random;
-
-import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -21,229 +15,213 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.view.View.OnClickListener;
 import android.os.Vibrator;
 import android.app.Service;
 
-public class shuffle extends Activity
-{
-//  public static int num_shuffle=0;
-  private SensorManager mSensorManager;
-  private ImageView mImageView1;
-  private ImageView mImageView2;
-  private ImageView mImageView3;
-  private ImageView mImageView4;
-  private ImageView mImageView5;
-  private ImageView mImageView6;
-  private ImageView mImageView7;
-  private ImageView mImageView8;
-  private Bitmap myBitmap;
-  private Vibrator mVibrator01;
-  private int key;
+public class shuffle extends Activity {
+    //  public static int num_shuffle=0;
+    private SensorManager mSensorManager;
+    private ImageView mImageView1;
+    private ImageView mImageView2;
+    private ImageView mImageView3;
+    private ImageView mImageView4;
+    private ImageView mImageView5;
+    private ImageView mImageView6;
+    private ImageView mImageView7;
+    private ImageView mImageView8;
+    private Bitmap myBitmap;
+    private Vibrator mVibrator01;
+    private int key;
 //  final private Bitmap myBitmap=BitmapFactory.decodeResource(getResources(), R.drawable.back);
 //  public Bitmap[] b=new Bitmap[10];
 //  final int width=myBitmap.getWidth();
 //  final int height=myBitmap.getHeight();
-  
-  public boolean onTouchEvent(MotionEvent event) 
-  {
-    /* eventµÄAction?¶Ï */
-    if(event.getPointerCount()>1)
-    {
-      Intent intent=new Intent();
-      intent.setClass(shuffle.this, Choose2.class);
-      startActivity(intent);
-      System.exit(0);
-      shuffle.this.finish();
-    }
-    return super.onTouchEvent(event);
-  }
-  @Override
-  public boolean onKeyDown(int keyCode, KeyEvent event) {
-    
-    //°´ÏÂ¼üÅÌÉÏ·µ»Ø°´Å¥
-    if(keyCode == KeyEvent.KEYCODE_BACK){
-      Intent intent=new Intent();
-      intent.setClass(shuffle.this, Choose2.class);
-      startActivity(intent);
-      shuffle.this.finish();
-//      choose.myMediaPlayer.stop();
-      return true;
-    }else{    
-      return super.onKeyDown(keyCode, event);
-    }
-  }
 
-  /** Called when the activity is first created. */
-  @Override
-  public void onCreate(Bundle savedInstanceState)
-  {
-    super.onCreate(savedInstanceState);
-    
-  //Òþ²Ø×´Ì¬À¸£¬Ê¹imageviewÈ«ÆÁÏÔÊ¾
-    this.getWindow().setFlags
-    (
-        WindowManager.LayoutParams.FLAG_FULLSCREEN,
-        WindowManager.LayoutParams.FLAG_FULLSCREEN
-    );
-    //Òþ²Ø±êÌâÀ¸
-    requestWindowFeature(Window.FEATURE_NO_TITLE);
-    setContentView(R.layout.main2_sensor);
-    Toast.makeText(shuffle.this, "×¼±¸ºÃÁËÂð£¿  ×¨×¢ÓÚÄãÏòËþÂÞÖ®ÉñÆíÇóµÄÎÊÌâ£¬Æ¾½èÐÄÁéµÄ¸ÐÓ¦À´Ï´ÅÆ°É£¡°´¶¯°´Å¥ÒÔÍê³ÉÏ´ÅÆ¡£", Toast.LENGTH_LONG).show();
-
-    Bundle bundle=this.getIntent().getExtras();
-    key=bundle.getInt("key");
-    Toast.makeText(shuffle.this, "Ò¡»ÎÆÁÄ»À´Ï´ÅÆ", Toast.LENGTH_SHORT);
-    ImageView button=(ImageView)findViewById(R.id.myButton1);
-    button.setOnClickListener(new Button.OnClickListener()
-    {
-      public void onClick(View v)
-      {
-        switch (key)
-        {
-        case 1:
-          Intent intent1=new Intent();
-          intent1.setClass(shuffle.this, editText.class);
-          startActivity(intent1);
-          shuffle.this.finish();
-          break;
-        case 2:
-          Intent intent2=new Intent();
-          intent2.setClass(shuffle.this, cardarray2.class);
-          startActivity(intent2);
-          shuffle.this.finish();
-          break;
-        case 3:
-          Intent intent3=new Intent();
-          intent3.setClass(shuffle.this, cardarray3.class);
-          startActivity(intent3);
-          shuffle.this.finish();
-          break;
-
-        default:
-          break;
+    public boolean onTouchEvent(MotionEvent event) {
+    /* eventï¿½ï¿½Action?ï¿½ï¿½ */
+        if (event.getPointerCount() > 1) {
+            Intent intent = new Intent();
+            intent.setClass(shuffle.this, Choose2.class);
+            startActivity(intent);
+            System.exit(0);
+            shuffle.this.finish();
         }
-      }
-    });
-    
-    final Bitmap myBitmap=BitmapFactory.decodeResource(getResources(), R.drawable.back);//ÎÒ²Á£¬»¹Ã»ÓÐonCreate²»ÄÜÏÈ¶¨Òå
-    final int width=myBitmap.getWidth();final int height=myBitmap.getHeight();
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        //ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½Ø°ï¿½Å¥
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent intent = new Intent();
+            intent.setClass(shuffle.this, Choose2.class);
+            startActivity(intent);
+            shuffle.this.finish();
+//      choose.myMediaPlayer.stop();
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+
+    /**
+     * Called when the activity is first created.
+     */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        this.getWindow().setFlags
+                (
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN
+                );
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.main2_sensor);
+        Toast.makeText(shuffle.this, "å‡†å¤‡å¥½äº†å—ï¼Ÿ  ä¸“æ³¨äºŽä½ å‘å¡”ç½—ä¹‹ç¥žç¥ˆæ±‚çš„é—®é¢˜ï¼Œå‡­å€Ÿå¿ƒçµçš„æ„Ÿåº”æ¥æ´—ç‰Œå§ï¼æŒ‰åŠ¨æŒ‰é’®ä»¥å®Œæˆæ´—ç‰Œã€‚", Toast.LENGTH_LONG).show();
+
+        Bundle bundle = this.getIntent().getExtras();
+        key = bundle.getInt("key");
+        Toast.makeText(shuffle.this, "æ‘‡æ™ƒå±å¹•æ¥æ´—ç‰Œ", Toast.LENGTH_SHORT);
+        ImageView button = (ImageView) findViewById(R.id.myButton1);
+        button.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                switch (key) {
+                    case 1:
+                        Intent intent1 = new Intent();
+                        intent1.setClass(shuffle.this, editText.class);
+                        startActivity(intent1);
+                        shuffle.this.finish();
+                        break;
+                    case 2:
+                        Intent intent2 = new Intent();
+                        intent2.setClass(shuffle.this, CardArray2.class);
+                        startActivity(intent2);
+                        shuffle.this.finish();
+                        break;
+                    case 3:
+                        Intent intent3 = new Intent();
+                        intent3.setClass(shuffle.this, CardArray3.class);
+                        startActivity(intent3);
+                        shuffle.this.finish();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        });
+
+        final Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.back);//æˆ‘æ“¦ï¼Œè¿˜æ²¡æœ‰onCreateä¸èƒ½å…ˆå®šä¹‰
+        final int width = myBitmap.getWidth();
+        final int height = myBitmap.getHeight();
 //    int width=(int)(0.6*myBitmap.getWidth());int height=(int)(myBitmap.getHeight()*0.5);
 //    Matrix matrix1=new Matrix();
 //    matrix1.postScale(0.6f, 0.5f);//?
 //    matrix1.setRotate(0);
 //    Bitmap reBitmap1=Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix1, true);
-    Matrix matrix2=new Matrix();
-    matrix2.postScale(0.6f, 0.5f);
-    matrix2.setRotate(30);
-    Bitmap reBitmap2=Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix2, true);
-    Matrix matrix3=new Matrix();
-    matrix3.postScale(0.6f, 0.5f);
-    matrix3.setRotate(60);
-    Bitmap reBitmap3=Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix3, true);
-    Matrix matrix4=new Matrix();
-    matrix4.postScale(0.6f, 0.5f);
-    matrix4.setRotate(90);
-    Bitmap reBitmap4=Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix4, true);
-    Matrix matrix5=new Matrix();
-    matrix5.postScale(0.6f, 0.5f);
-    matrix5.setRotate(120);
-    Bitmap reBitmap5=Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix5, true);
-    Matrix matrix6=new Matrix();
-    matrix6.postScale(0.6f, 0.5f);
-    matrix6.setRotate(150);
-    Bitmap reBitmap6=Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix6, true);
-    Matrix matrix7=new Matrix();
-    matrix7.postScale(0.6f, 0.5f);
-    matrix7.setRotate(170);
-    Bitmap reBitmap7=Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix7, true);
-    Matrix matrix8=new Matrix();
-    matrix8.postScale(0.6f, 0.5f);
-    matrix8.setRotate(20);
-    Bitmap reBitmap8=Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix8, true);
- 
+        Matrix matrix2 = new Matrix();
+        matrix2.postScale(0.6f, 0.5f);
+        matrix2.setRotate(30);
+        Bitmap reBitmap2 = Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix2, true);
+        Matrix matrix3 = new Matrix();
+        matrix3.postScale(0.6f, 0.5f);
+        matrix3.setRotate(60);
+        Bitmap reBitmap3 = Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix3, true);
+        Matrix matrix4 = new Matrix();
+        matrix4.postScale(0.6f, 0.5f);
+        matrix4.setRotate(90);
+        Bitmap reBitmap4 = Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix4, true);
+        Matrix matrix5 = new Matrix();
+        matrix5.postScale(0.6f, 0.5f);
+        matrix5.setRotate(120);
+        Bitmap reBitmap5 = Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix5, true);
+        Matrix matrix6 = new Matrix();
+        matrix6.postScale(0.6f, 0.5f);
+        matrix6.setRotate(150);
+        Bitmap reBitmap6 = Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix6, true);
+        Matrix matrix7 = new Matrix();
+        matrix7.postScale(0.6f, 0.5f);
+        matrix7.setRotate(170);
+        Bitmap reBitmap7 = Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix7, true);
+        Matrix matrix8 = new Matrix();
+        matrix8.postScale(0.6f, 0.5f);
+        matrix8.setRotate(20);
+        Bitmap reBitmap8 = Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix8, true);
+
 //    mImageView1=(ImageView)findViewById(R.id.backview1);
 //    mImageView1.setImageBitmap(reBitmap1);
-    mImageView2=(ImageView)findViewById(R.id.backview2);
-    mImageView2.setImageBitmap(reBitmap2);
-    mImageView3=(ImageView)findViewById(R.id.backview3);
-    mImageView3.setImageBitmap(reBitmap3);
-    mImageView4=(ImageView)findViewById(R.id.backview4);
-    mImageView4.setImageBitmap(reBitmap4);
-    mImageView5=(ImageView)findViewById(R.id.backview5);
-    mImageView5.setImageBitmap(reBitmap5);
-    mImageView6=(ImageView)findViewById(R.id.backview6);
-    mImageView6.setImageBitmap(reBitmap6);
-    mImageView7=(ImageView)findViewById(R.id.backview7);
-    mImageView7.setImageBitmap(reBitmap7);
-    mImageView8=(ImageView)findViewById(R.id.backview8);
-    mImageView8.setImageBitmap(reBitmap8);
-    
-    mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-    mVibrator01 = ( Vibrator )getApplication().getSystemService( Service .VIBRATOR_SERVICE ); 
+        mImageView2 = (ImageView) findViewById(R.id.backview2);
+        mImageView2.setImageBitmap(reBitmap2);
+        mImageView3 = (ImageView) findViewById(R.id.backview3);
+        mImageView3.setImageBitmap(reBitmap3);
+        mImageView4 = (ImageView) findViewById(R.id.backview4);
+        mImageView4.setImageBitmap(reBitmap4);
+        mImageView5 = (ImageView) findViewById(R.id.backview5);
+        mImageView5.setImageBitmap(reBitmap5);
+        mImageView6 = (ImageView) findViewById(R.id.backview6);
+        mImageView6.setImageBitmap(reBitmap6);
+        mImageView7 = (ImageView) findViewById(R.id.backview7);
+        mImageView7.setImageBitmap(reBitmap7);
+        mImageView8 = (ImageView) findViewById(R.id.backview8);
+        mImageView8.setImageBitmap(reBitmap8);
 
-  }
-    @Override
-    protected void onResume()
-    {
-   // TODO Auto-generated method stub
-      super.onResume();
-      /* È¡µÃ·½ÊØÐÔµÄSensor£¬²¢×¢²áSensorEventListener */
-      mSensorManager.registerListener(mSensorEventListener, mSensorManager
-          .getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-          SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mVibrator01 = (Vibrator) getApplication().getSystemService(Service.VIBRATOR_SERVICE);
+
     }
 
     @Override
-    protected void onPause()
-    {
-      // TODO Auto-generated method stub
-      /* È¡Ïû×¢²áSensorEventListener */
-      mSensorManager.unregisterListener(mSensorEventListener);
-      super.onPause();
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+      /* å–å¾—æ–¹å®ˆæ€§çš„Sensorï¼Œå¹¶æ³¨å†ŒSensorEventListener */
+        mSensorManager.registerListener(mSensorEventListener, mSensorManager
+                        .getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_NORMAL);
     }
 
-    private final SensorEventListener mSensorEventListener = new SensorEventListener()
-    {
-
-      @Override
-      public void onAccuracyChanged(Sensor sensor, int accuracy)
-      {
+    @Override
+    protected void onPause() {
         // TODO Auto-generated method stub
+      /* å–æ¶ˆæ³¨å†ŒSensorEventListener */
+        mSensorManager.unregisterListener(mSensorEventListener);
+        super.onPause();
+    }
 
-      }
+    private final SensorEventListener mSensorEventListener = new SensorEventListener() {
 
-      @Override
-      public void onSensorChanged(SensorEvent event)
-      {
-        // TODO Auto-generated method stub
-        /* ÅÐ¶ÏSensorµÄÖÖÀà */
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
-        {
-          float x=event.values[SensorManager.DATA_X];
-          float y=event.values[SensorManager.DATA_Y];
-          float z=event.values[SensorManager.DATA_Z];
-          if (x>2&&y>2)
-          {
-            if (x>5&&y>5)
-            {
-              mVibrator01.vibrate(new long[]{100,10,100,1000}, -1);
-            }
-            mImageView8.layout(0+(int)(10*x), 10+(int)(10*y), 300+(int)(10*x), 490+(int)(10*y));
-            mImageView7.layout(200-(int)(5*x), 120-(int)(5*y), 500-(int)(5*x),520-(int)(5*y));
-            mImageView6.layout(170+(int)(10*x), 240+(int)(10*y), 470+(int)(10*x), 720+(int)(10*y));
-            mImageView5.layout(140-(int)(10*x), 0-(int)(10*y), 440-(int)(10*x), 480-(int)(10*y));
-            mImageView4.layout(110+(int)(5*x), 300+(int)(5*y), 410+(int)(5*x), 780+(int)(5*y));
-            mImageView3.layout(80-(int)(10*x), 60-(int)(10*y), 380-(int)(10*x), 540-(int)(10*y));
-            mImageView2.layout(50+(int)(10*x), 180+(int)(10*y), 350+(int)(10*x), 660+(int)(10*y));
-          }
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+            // TODO Auto-generated method stub
+
         }
-      }
-    };
- }
 
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            // TODO Auto-generated method stub
+        /* åˆ¤æ–­Sensorçš„ç§ç±» */
+            if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+                float x = event.values[SensorManager.DATA_X];
+                float y = event.values[SensorManager.DATA_Y];
+                float z = event.values[SensorManager.DATA_Z];
+                if (x > 2 && y > 2) {
+                    if (x > 5 && y > 5) {
+                        mVibrator01.vibrate(new long[]{100, 10, 100, 1000}, -1);
+                    }
+                    mImageView8.layout(0 + (int) (10 * x), 10 + (int) (10 * y), 300 + (int) (10 * x), 490 + (int) (10 * y));
+                    mImageView7.layout(200 - (int) (5 * x), 120 - (int) (5 * y), 500 - (int) (5 * x), 520 - (int) (5 * y));
+                    mImageView6.layout(170 + (int) (10 * x), 240 + (int) (10 * y), 470 + (int) (10 * x), 720 + (int) (10 * y));
+                    mImageView5.layout(140 - (int) (10 * x), 0 - (int) (10 * y), 440 - (int) (10 * x), 480 - (int) (10 * y));
+                    mImageView4.layout(110 + (int) (5 * x), 300 + (int) (5 * y), 410 + (int) (5 * x), 780 + (int) (5 * y));
+                    mImageView3.layout(80 - (int) (10 * x), 60 - (int) (10 * y), 380 - (int) (10 * x), 540 - (int) (10 * y));
+                    mImageView2.layout(50 + (int) (10 * x), 180 + (int) (10 * y), 350 + (int) (10 * x), 660 + (int) (10 * y));
+                }
+            }
+        }
+    };
+}
