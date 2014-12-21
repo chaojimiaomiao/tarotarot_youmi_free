@@ -27,6 +27,9 @@ local.properties
 .project
 .metadata/
 
+# Gradle project files
+.gradle/
+
 # IDEA project files
 .idea/
 *.eml
