@@ -20,6 +20,20 @@ public class CardArray1 extends BaseCardArray {
 
         mImageButton1 = (ImageView) findViewById(R.id.myImageButton1);
         hintTextView = (TextView) findViewById(R.id.myTextView1);
+        imageButtons.add(mImageButton1);
+        super.initViews();
+    }
+    
+    @Override
+    public void initGuides() {
+      super.initGuides();
+
+      Bundle bundle = this.getIntent().getExtras();
+      String question = bundle.getString("question");
+      String str1 = "所以你的";
+      String str2 = "谜底是：？\n 点击查看牌面。";
+      guideStrings.add(str1 + question + str2);
+      guideStrings.add("天狼星的使者已给出你想要的答案了，而你所要做的就是直面自己的内心。\\n两指触控屏幕以返回上一级。");
     }
 
     /**
@@ -29,24 +43,5 @@ public class CardArray1 extends BaseCardArray {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Bundle bundle = this.getIntent().getExtras();
-        String question = bundle.getString("question");
-
-        String str1 = "所以你的";
-        String str2 = "谜底是：？\n 点击查看牌面。";
-        hintTextView.setText(str1 + question + str2);
-
-        mImageButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (i_1 == 0) {
-                    seeYourCard(i1, mImageButton1);
-                    i_1 = 1;
-                } else {
-                    meaningOfCard(i1, "天狼星的使者已给出你想要的答案了，而你所要做的就是直面自己的内心。\\n两指触控屏幕以返回上一级。");
-                    i_1 = 0;
-                }
-            }
-        });
     }
 }

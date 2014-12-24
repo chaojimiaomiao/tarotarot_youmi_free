@@ -3,10 +3,8 @@ package irdc.gallary;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,13 +12,65 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by zhaibingjie on 14-12-19.
  */
 public class BaseCardArray extends Activity implements View.OnClickListener {
-    protected ArrayList<ImageButton> imageButtons;
+    private final int HAS_NOT_SEE = 0, HAS_SEE_FIRST = 1, HAS_SEE_MEAN = 2;
+    protected ArrayList<ImageView> imageButtons = new ArrayList<ImageView>();
+    protected ArrayList<String> guideStrings;
+    protected ArrayList<Integer> dataInts;
+    protected ArrayList<Integer> judgeInts;
     protected TextView hintTextView;
+
+    protected void initGuides() {
+      guideStrings = new ArrayList<String>();
+    }
+
+    protected void initViews() {
+      hintTextView.setText(guideStrings.get(0));
+    }
+    
+    protected void initDatas()//这个也是根据个数random的
+    {
+      dataInts = new ArrayList<Integer>();
+      judgeInts = new ArrayList<Integer>();
+      for (int i = 0; i < imageButtons.size(); i++)
+      {
+        Random random = new Random();
+        dataInts.add(random.nextInt(43));
+        judgeInts.add(HAS_NOT_SEE);
+      }
+    }
+
+    private void initButtons() {
+      for (int i = 0; i < imageButtons.size(); i++) {
+        final int nowNum = i;
+        
+        ImageView tmpButton = imageButtons.get(i);
+        tmpButton.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View arg0) {
+            for (int j = 0; j < nowNum; j++) {
+              if (judgeInts.get(j) != HAS_SEE_MEAN) {
+                new AlertDialog.Builder(BaseCardArray.this).setTitle("").setMessage("提示：请先翻开第" + (j+1) +"张牌。")
+                        .setPositiveButton("OK", null).show();
+                return;
+              }
+            }
+            if (judgeInts.get(nowNum) == HAS_NOT_SEE) {
+              seeYourCard(dataInts.get(nowNum), imageButtons.get(nowNum));
+              judgeInts.set(nowNum, 1);
+          } else {
+              meaningOfCard(dataInts.get(nowNum), guideStrings.get(nowNum + 1));
+              judgeInts.set(nowNum, 2);
+          }
+         }
+        });
+      }
+    }
 
     @Override
     public void onCreate(android.os.Bundle savedInstanceState) {
@@ -32,7 +82,10 @@ public class BaseCardArray extends Activity implements View.OnClickListener {
         );
         //隐藏标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        initGuides();
         initViews();
+        initDatas();
+        initButtons();
     }
 
     public boolean onTouchEvent(MotionEvent event)
@@ -61,10 +114,6 @@ public class BaseCardArray extends Activity implements View.OnClickListener {
 //            return super.onKeyDown(keyCode, event);
 //        }
 //    }
-
-    protected void initViews() {
-
-    }
 
     protected void seeYourCard(int randonNum, ImageView mImageButton1) {
         switch (randonNum) {

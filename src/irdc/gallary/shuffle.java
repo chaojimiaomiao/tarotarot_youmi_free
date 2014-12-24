@@ -54,8 +54,6 @@ public class shuffle extends Activity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        //���¼����Ϸ��ذ�ť
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent();
             intent.setClass(shuffle.this, Choose2.class);

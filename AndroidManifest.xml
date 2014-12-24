@@ -17,7 +17,7 @@
         <activity android:name="shuffle" android:screenOrientation="nosensor"></activity>
         <activity android:name="editText" android:screenOrientation="nosensor"></activity>
         <activity android:name=".CardArray1" android:screenOrientation="nosensor"></activity>
-        <activity android:name=".CardArray3" android:screenOrientation="nosensor"></activity>
+        <activity android:name=".CardArray2" android:screenOrientation="nosensor"></activity>
         <activity android:name=".CardArray3" android:screenOrientation="nosensor"></activity>
     </application>
 <uses-permission android:name="android.permission.RESTART_PACKAGES" /> 
