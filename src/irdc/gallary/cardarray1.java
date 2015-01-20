@@ -3,17 +3,11 @@ package irdc.gallary;
 import java.util.Random;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CardArray1 extends BaseCardArray {
     private ImageView mImageButton1;
-
-    //  private TextView
-    int i_1 = 0;
-    Random r1 = new Random();
-    int i1 = r1.nextInt(43);
 
     protected void initViews() {
         setContentView(R.layout.main2_01);

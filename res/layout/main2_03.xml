@@ -1,55 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@drawable/game_bg"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
     <ImageView
-        android:id="@+id/myImageButton1"
-        android:layout_width="158px"
-        android:layout_height="260px"
+        android:id="@+id/myImageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scaleType="fitXY"
-        android:layout_marginTop="200dip"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/back_1" />
-
-    <ImageView
-        android:id="@+id/myImageButton2"
-        android:layout_width="158px"
-        android:layout_height="260px"
-        android:scaleType="fitXY"
-        android:layout_marginTop="140dip"
-        android:layout_marginLeft="145dip"
-        android:src="@drawable/back_2" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/back_4" />
 
     <ImageView
         android:id="@+id/myImageButton3"
-        android:layout_width="158px"
-        android:layout_height="260px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scaleType="fitXY"
         android:layout_marginTop="80dip"
-        android:layout_marginLeft="70dip"
+        android:layout_toRightOf="@id/myImageButton4"
         android:src="@drawable/back_3" />
 
     <ImageView
-        android:id="@+id/myImageButton4"
-        android:layout_width="158px"
-        android:layout_height="260px"
+        android:id="@+id/myImageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scaleType="fitXY"
-        android:layout_below="@+id/adView"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/back_4" />
+        android:layout_marginTop="140dip"
+        android:layout_toRightOf="@id/myImageButton3"
+        android:src="@drawable/back_2" />
 
-    <TextView
-        android:id="@+id/text1"
-        android:gravity="fill"
-        android:textColor="@drawable/black"
-        android:textSize="10sp"
-        android:layout_width="240px"
-        android:layout_height="370px"
-        android:layout_marginTop="170dip"
-        android:layout_alignParentLeft="true"></TextView>
+    <ImageView
+        android:id="@+id/myImageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_marginTop="200dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/back_1" />
+
 
     <TextView
         android:id="@+id/myTextView1"

@@ -10,6 +10,9 @@ apply plugin: 'android'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
+    compile files('libs/YoumiSdk_v5.00_2014-12-25.jar')
+    compile files('libs/umeng-analytics-v5.2.4.jar')
+    //compile 'com.umeng.analytics:analytics:latest.integration'
 }
 
 android {

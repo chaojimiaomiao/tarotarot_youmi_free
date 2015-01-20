@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <View 
+        android:id="@+id/id_intro"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shadow"
+        android:visibility="visible"
+        android:alpha="0"
+        />
     <ImageView
         android:id="@+id/image1"
         android:src="@drawable/crystal"

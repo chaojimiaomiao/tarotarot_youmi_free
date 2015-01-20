@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ContentDescription">
+        <ignore path="build/intermediates/res/debug/layout/main2_stock.xml" />
+    </issue>
+    <issue id="HardcodedText">
+        <ignore path="build/intermediates/res/debug/layout/main2_stock.xml" />
+    </issue>
+</lint>

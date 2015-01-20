@@ -14,18 +14,6 @@
         android:layout_marginTop="10dip"
         android:src="@drawable/back_1" />
 
-    <TextView
-        android:id="@+id/text1"
-        android:text=""
-        android:textSize="10sp"
-        android:textColor="@drawable/black"
-        android:layout_gravity="center"
-        android:layout_width="260px"
-        android:layout_height="310px"
-        android:gravity="fill"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"></TextView>
-
     <ImageView
         android:id="@+id/myImageButton2"
         android:layout_width="200px"
@@ -36,19 +24,6 @@
         android:layout_marginLeft="20dip"
         android:src="@drawable/back_2" />
 
-    <TextView
-        android:id="@+id/text2"
-        android:text=""
-        android:textSize="10sp"
-        android:layout_gravity="center"
-        android:textColor="@drawable/black"
-        android:layout_width="230px"
-        android:layout_height="300px"
-        android:gravity="fill"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="15dip"
-        android:layout_below="@id/myImageButton1"></TextView>
-
     <ImageView
         android:id="@+id/myImageButton3"
         android:layout_width="200px"
@@ -56,23 +31,9 @@
         android:scaleType="fitXY"
         android:layout_below="@id/myImageButton1"
         android:layout_marginTop="20dip"
-        android:layout_marginLeft="20dip"
-        android:layout_toRightOf="@id/myImageButton2"
-        android:src="@drawable/back_3" />
-
-    <TextView
-        android:id="@+id/text3"
-        android:text=""
-        android:textSize="10sp"
-        android:textColor="@drawable/black"
-        android:layout_width="230px"
-        android:layout_height="300px"
-        android:gravity="fill"
-        android:layout_below="@id/myImageButton1"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="15dip"
-        android:layout_marginLeft="20dip"
-        android:layout_toRightOf="@id/myImageButton2"></TextView>
+        android:layout_marginRight="20dip"
+        android:src="@drawable/back_3" />
 
     <TextView
         android:id="@+id/myTextView1"

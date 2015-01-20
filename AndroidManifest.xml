@@ -11,21 +11,59 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Intro" android:screenOrientation="nosensor"></activity>
         <activity android:name="gallary" android:screenOrientation="nosensor"></activity>
         <activity android:name="SimIntro" android:screenOrientation="nosensor"></activity>
         <activity android:name="Choose2" android:screenOrientation="nosensor"></activity>
         <activity android:name="shuffle" android:screenOrientation="nosensor"></activity>
         <activity android:name="editText" android:screenOrientation="nosensor"></activity>
+        <activity android:name=".CardArrayStock" android:screenOrientation="nosensor"></activity>
         <activity android:name=".CardArray1" android:screenOrientation="nosensor"></activity>
         <activity android:name=".CardArray2" android:screenOrientation="nosensor"></activity>
         <activity android:name=".CardArray3" android:screenOrientation="nosensor"></activity>
+        <activity android:name=".CardArrayOther" android:screenOrientation="nosensor"></activity>
+
+        <service
+    		android:name="com.umeng.update.net.DownloadingService"
+    		android:process=":DownloadingService" >
+		</service>
+		<activity 
+    		android:name="com.umeng.update.UpdateDialogActivity"
+    		android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+		</activity>
+        <activity
+        	android:name="com.umeng.fb.ConversationActivity"
+        	android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        	<meta-data
+        		android:value="54a8d597fd98c54f320003ae"
+        		android:name="UMENG_APPKEY"/>
+        	<meta-data
+        		android:value="Channel ID"
+        		android:name="QQ"/>
+        <activity
+            android:name="net.youmi.android.AdBrowser"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        <service
+            android:name="net.youmi.android.AdService" >
+        </service>
+        <receiver
+            android:name="net.youmi.android.AdReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
     </application>
 <uses-permission android:name="android.permission.RESTART_PACKAGES" /> 
-    <!-- 连接网络权限 ，用于请求广告(必须)-->  
-<uses-permission android:name="android.permission.INTERNET"></uses-permission>
-  
-<!-- 读取手机基本信息权限，用于精确统计用户的机型等信息(必须) -->
-<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- 连接网络权限 ，用于请求广告(必须)-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
  
 <!-- 读写sd卡的权限，用于缓存广告所用到的图片，节省流量 ，并可获得更好的用户体验(所有使用有米android 2.0版本以上sdk的应用都会共享缓存的图片)-->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
@@ -39,4 +77,10 @@
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <uses-sdk android:minSdkVersion="7" />
     <uses-permission android:name="android.permission.VIBRATE" />
+
+    <meta-data android:name="YOUMI_CHANNEL"
+        android:value="1" >
+    </meta-data>
+    <meta-data android:value="54a8d597fd98c54f320003ae" android:name="UMENG_APPKEY"></meta-data>
+    <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>
 </manifest> 

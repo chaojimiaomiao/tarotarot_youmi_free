@@ -78,7 +78,8 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 20 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="YoumiSdk_v4.10_2014-11-24" level="project" />
+    <orderEntry type="library" exported="" name="YoumiSdk_v5.00_2014-12-25" level="project" />
+    <orderEntry type="library" exported="" name="umeng-analytics-v5.2.4" level="project" />
   </component>
 </module>
 

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/game_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/myImageButton2"
+        android:layout_width="100dp"
+        android:layout_height="161dp"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/back_rose" />
+
+    <ImageView
+        android:id="@+id/myImageButton1"
+        android:layout_width="100dp"
+        android:layout_height="161dp"
+        android:scaleType="fitXY"
+        android:layout_alignTop="@id/myImageButton2"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/myImageButton2"
+        android:src="@drawable/back_rose" />
+
+
+    <ImageView
+        android:id="@+id/myImageButton3"
+        android:layout_width="100dp"
+        android:layout_height="161dp"
+        android:scaleType="fitXY"
+        android:layout_alignTop="@id/myImageButton2"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@id/myImageButton2"
+        android:src="@drawable/back_rose" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:hint="金融板块"
+        android:textSize="14sp"
+        android:id="@+id/textView2"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/myImageButton2"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="4dp"
+        android:hint="化工板块"
+        android:textSize="14sp"
+        android:id="@+id/textView"
+        android:layout_below="@+id/myImageButton1"
+        android:layout_alignLeft="@+id/myImageButton1" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="4dp"
+        android:hint="地产板块"
+        android:textSize="14sp"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/myImageButton3"
+        android:layout_alignRight="@id/myImageButton3" />
+
+    <TextView
+        android:id="@+id/myTextView1"
+        android:layout_width="220dip"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@drawable/white"
+        android:layout_marginBottom="10dip"
+        android:layout_alignParentBottom="true"></TextView>
+
+    <Button
+        android:visibility="gone"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:id="@+id/button_sure"
+        android:layout_above="@+id/myTextView1"
+        android:layout_alignRight="@+id/myImageButton3"
+        android:layout_marginBottom="59dp" />
+
+
+</RelativeLayout>

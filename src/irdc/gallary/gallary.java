@@ -1,12 +1,7 @@
 package irdc.gallary;
 
-import irdc.gallary.R.string;
-
-import android.R.integer;
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.TextView; /*����Layout��ʹ��Gallery widget������������Щģ��*/
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Gallery;
@@ -17,13 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+
+import com.umeng.analytics.MobclickAgent;
 
 public class gallary extends Activity {
     public String preString;
@@ -44,8 +40,6 @@ public class gallary extends Activity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        //���¼����Ϸ��ذ�ť
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent();
             intent.setClass(gallary.this, ChooseMain.class);
@@ -71,6 +65,7 @@ public class gallary extends Activity {
                 );
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main1_01);
+
         Toast toast = Toast.makeText(gallary.this, "多点触控屏幕以返回上一级", Toast.LENGTH_LONG);
         toast.setGravity(Gravity.TOP, 10, 10);
         toast.show();
@@ -89,7 +84,6 @@ public class gallary extends Activity {
 
         Gallery g = (Gallery) findViewById(R.id.myGallery1);
         g.setAdapter(new ImageAdapter(this));
-//    Pos=position;//                                ...............................
         g.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Pos = position;
@@ -224,5 +218,14 @@ public class gallary extends Activity {
         public float getScale(boolean focused, int offset) { /* Formula: 1 / (2 ^ offset) */
             return Math.max(0, 1.0f / (float) Math.pow(2, Math.abs(offset)) * 1.2f);
         }
+    }
+
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }

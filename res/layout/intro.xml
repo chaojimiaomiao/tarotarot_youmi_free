@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sky_taro"
+    android:orientation="vertical"
+    tools:context=".Intro" >
+    
+    <TextView 
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_marginTop="24dp"
+    	android:layout_marginLeft="20dp"
+    	android:textColor="#fff"
+    	android:text="简介："
+        />
+    
+    <TextView 
+        android:layout_width="200dp"
+    	android:layout_height="wrap_content"
+    	android:layout_marginTop="6dp"
+    	android:layout_marginLeft="30dp"
+    	android:textColor="#fff"
+    	android:text="    塔罗牌，被称为“大自然的奥秘库”。它是西方古老的占卜工具，中世纪起流行于欧洲，地位相当于中国的《易经》，其起源一直是个谜。塔罗共78张牌，其中大阿卡那牌22张，小阿卡那牌56张，可分别使用进行占卜，也可将78张混合共同使用进行占卜。"
+        />
+    
+    <EditText
+        android:id="@+id/intro_feedback"
+        android:layout_marginTop="10dp"
+    	android:layout_marginLeft="20dp"
+        android:text= "您的建议："
+        android:textSize="12sp"
+        android:layout_width="100dp"
+        android:layout_height="40dp" />
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="12dp">
+    <ImageView 
+        android:id="@+id/logo"
+        android:layout_width="30dp"
+    	android:layout_height="30dp"
+    	android:src="@drawable/icy_logo"
+        />
+    <TextView 
+        android:layout_below="@id/logo"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:text="http://fir.im/tarot"
+    	android:textColor="#eacae1"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/logo"
+        android:layout_toRightOf="@+id/logo"
+    	android:textColor="#eacae1"
+        android:text="   联系我们：" />
+
+    </RelativeLayout>
+
+</LinearLayout>

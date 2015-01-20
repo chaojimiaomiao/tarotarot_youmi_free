@@ -89,6 +89,12 @@ public class shuffle extends Activity {
         button.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 switch (key) {
+                    case 0:
+                        Intent intent0 = new Intent();
+                        intent0.setClass(shuffle.this, CardArrayStock.class);
+                        startActivity(intent0);
+                        shuffle.this.finish();
+                        break;
                     case 1:
                         Intent intent1 = new Intent();
                         intent1.setClass(shuffle.this, editText.class);

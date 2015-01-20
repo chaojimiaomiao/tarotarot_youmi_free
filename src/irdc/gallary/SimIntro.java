@@ -10,6 +10,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.umeng.analytics.MobclickAgent;
+
 public class SimIntro extends Activity
 {
     private ImageView miImageView;
@@ -994,6 +997,15 @@ public class SimIntro extends Activity
                 jumpToLayout44();
             }
         });
+    }
+
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
 }

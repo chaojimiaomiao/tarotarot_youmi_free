@@ -14,6 +14,8 @@ import android.view.WindowManager;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.umeng.analytics.MobclickAgent;
+
 /**
  * Created by zhaibingjie on 14-12-19.
  */
@@ -45,31 +47,35 @@ public class BaseCardArray extends Activity implements View.OnClickListener {
       }
     }
 
-    private void initButtons() {
-      for (int i = 0; i < imageButtons.size(); i++) {
-        final int nowNum = i;
-        
-        ImageView tmpButton = imageButtons.get(i);
-        tmpButton.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View arg0) {
-            for (int j = 0; j < nowNum; j++) {
-              if (judgeInts.get(j) != HAS_SEE_MEAN) {
-                new AlertDialog.Builder(BaseCardArray.this).setTitle("").setMessage("提示：请先翻开第" + (j+1) +"张牌。")
+    protected void checkRistrict(ImageView tmpButton, int nowNum) {
+        for (int j = 0; j < nowNum; j++) {
+            if (judgeInts.get(j) != HAS_SEE_MEAN) {
+                new AlertDialog.Builder(BaseCardArray.this).setTitle("").setMessage("提示：请先翻开第" + (j + 1) + "张牌。")
                         .setPositiveButton("OK", null).show();
                 return;
-              }
             }
-            if (judgeInts.get(nowNum) == HAS_NOT_SEE) {
-              seeYourCard(dataInts.get(nowNum), imageButtons.get(nowNum));
-              judgeInts.set(nowNum, 1);
-          } else {
-              meaningOfCard(dataInts.get(nowNum), guideStrings.get(nowNum + 1));
-              judgeInts.set(nowNum, 2);
-          }
-         }
-        });
-      }
+        }
+    }
+
+    private void initButtons() {
+        for (int i = 0; i < imageButtons.size(); i++) {
+            final int nowNum = i;
+            final ImageView tmpButton = imageButtons.get(i);
+            //check限制
+            tmpButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    checkRistrict(tmpButton, nowNum);
+                    if (judgeInts.get(nowNum) == HAS_NOT_SEE) {
+                        seeYourCard(dataInts.get(nowNum), imageButtons.get(nowNum));
+                        judgeInts.set(nowNum, 1);
+                    } else {
+                        meaningOfCard(dataInts.get(nowNum), guideStrings.get(nowNum + 1));
+                        judgeInts.set(nowNum, 2);
+                    }
+                }
+            });
+        }
     }
 
     @Override
@@ -493,6 +499,15 @@ public class BaseCardArray extends Activity implements View.OnClickListener {
 
     public void onClick(View view) {
 
+    }
+
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
 }

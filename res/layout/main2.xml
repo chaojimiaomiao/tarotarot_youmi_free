@@ -13,10 +13,20 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="160dip">
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/button_stock"
+                android:src="@drawable/cards_stock"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="40dip"
+                android:layout_centerHorizontal="true"></ImageView>
 
             <ImageView
                 android:id="@+id/button1"
@@ -29,7 +39,7 @@
             <ImageView
                 android:id="@+id/button2"
                 android:src="@drawable/cards_2"
-                android:layout_marginTop="130dip"
+                android:layout_marginTop="40dip"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></ImageView>
@@ -37,7 +47,7 @@
             <ImageView
                 android:id="@+id/button3"
                 android:src="@drawable/cards_3"
-                android:layout_marginTop="220dip"
+                android:layout_marginTop="40dip"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></ImageView>
@@ -45,7 +55,7 @@
             <ImageView
                 android:id="@+id/button4"
                 android:src="@drawable/cards_4"
-                android:layout_marginTop="310dip"
+                android:layout_marginTop="40dip"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></ImageView>
@@ -53,7 +63,7 @@
             <ImageView
                 android:id="@+id/button5"
                 android:src="@drawable/cards_5"
-                android:layout_marginTop="400dip"
+                android:layout_marginTop="40dip"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></ImageView>
@@ -61,7 +71,7 @@
             <ImageView
                 android:id="@+id/button6"
                 android:src="@drawable/cards_6"
-                android:layout_marginTop="490dip"
+                android:layout_marginTop="40dip"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></ImageView>
@@ -69,10 +79,10 @@
             <ImageView
                 android:id="@+id/button7"
                 android:src="@drawable/cards_7"
-                android:layout_marginTop="580dip"
+                android:layout_marginTop="40dip"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></ImageView>
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>
